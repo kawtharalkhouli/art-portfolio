@@ -1,0 +1,111 @@
+<section class="home-section">
+    <div class="home-section__header">
+        <div class="left-slot">
+            <span class="material-icons">favorite</span>
+            <span>My Art Portfolio</span>
+        </div>
+
+        <div class="right-slot">
+            <a (click)="scrollTo('about')">About</a>
+            <a (click)="scrollTo('gallery')">Gallery</a>
+            <a (click)="scrollTo('contact')">Contact</a>
+        </div>
+    </div>
+
+    <div class="home-section__body">
+        <div class="main-section">
+            <div class="main-section__welcome-message">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-4 h-4 text-pink-600"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
+                <span>Welcome to my creative space</span>
+            </div>
+
+            <div class="main-section__title">
+                <h1>Creating Magic Through Art</h1>
+            </div>
+
+            <div class="main-section__description">
+                <span>Hi! I'm an artist who loves bringing imagination to life through colors, shapes, and stories. Explore my work and let's create something beautiful together!</span>
+            </div>
+
+            <div class="main-section__actions">
+                <button (click)="scrollTo('gallery')">View My Work</button>
+            </div>
+        </div>
+
+        <div class="about-me-section" #aboutSection> 
+            <div class="content">
+                <p class="about-me-section__title">About me</p>
+
+                <p class="about-me-section__text">
+                I'm a passionate artist specializing in digital illustrations and cozy art. My work is
+                inspired by nature, dreams, and the little moments that make life beautiful. Each piece
+                is created with love and attention to detail.</p>
+                <p class="about-me-section__text-2">
+                    Whether it's a whimsical landscape, a cute character, or a serene scene, I aim to bring
+                    joy and warmth to everyone who views my art.
+                </p>
+            </div>
+            
+        </div>
+
+        <div class="gallery-section" #gallerySection>
+            <p class="gallery-section__title">My Gallery</p>
+
+            <div class="gallery-section__images" #galleryGrid>
+                @for (item of galleryItems(); track item.id) {
+                    <div class="gallery-section__images--image">
+                        <div class="image-container">
+                            <img [src]="item.src" [alt]="item.name" loading="lazy">
+                        </div>
+                        <div class="details">
+                            <span class="title">{{ item.name }}</span>
+                            <span class="tag">{{ item.tag }}</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="contact-me-section" #contactSection>
+            <div class="content">
+                <p class="contact-me-section__title">Let's Connect!</p>
+                <p class="contact-me-section__desc">'d love to hear from you! Whether you want to commission a piece, collaborate,
+                    or just say hi, feel free to reach out.</p>
+            
+                <div class="contact-me-section__actions">
+                    <button class="primary-button" (click)="openEmail()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-mail w-5 h-5">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span>Email Me</span>
+                    </button>
+            
+                    <button class="gradient-button" (click)="openInstagram()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-instagram w-5 h-5">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                        </svg>
+                        <span>Instagram</span>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="home-section__footer">
+        <div class="container">
+            <p>
+                <span>Made with</span>
+                <span class="material-icons">favorite</span>
+                <span>by Kawthar</span>
+            </p> 
+        </div>
+    </div>
+</section>
