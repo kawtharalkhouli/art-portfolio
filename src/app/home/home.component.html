@@ -6,9 +6,9 @@
         </div>
 
         <div class="right-slot">
-            <a (click)="scrollTo('about')">About</a>
-            <a (click)="scrollTo('gallery')">Gallery</a>
-            <a (click)="scrollTo('contact')">Contact</a>
+            <a (click)="scrollTo('about')" (pointerdown)="scrollTo('about')" style="touch-action: manipulation;">About</a>
+            <a (click)="scrollTo('gallery')" (pointerdown)="scrollTo('gallery')" style="touch-action: manipulation;">Gallery</a>
+            <a (click)="scrollTo('contact')" (pointerdown)="scrollTo('contact')" style="touch-action: manipulation;">Contact</a>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
             </div>
 
             <div class="main-section__actions">
-                <button (click)="scrollTo('gallery')">View My Work</button>
+                <button (click)="scrollTo('gallery')" (pointerdown)="scrollTo('gallery')" style="touch-action: manipulation;">View My Work</button>
             </div>
         </div>
 
