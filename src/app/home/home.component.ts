@@ -113,6 +113,72 @@ export class HomeComponent {
       name: 'Lilies',
       tag: 'Florals',
     },
+    {
+      id: 23,
+      src: 'images/acrylic-paint.jpg',
+      name: 'Samll Acrylic Sketch',
+      tag: 'Acrylic Paint',
+    },
+    {
+      id: 25,
+      src: 'images/floral-moon-sketch.jpg',
+      name: 'Floral Moon Sketch',
+      tag: 'Sketches',
+    },
+    {
+      id: 33,
+      src: 'images/kawaii.jpg',
+      name: 'Kawaii Artwork',
+      tag: 'Doodles',
+    },
+    // {
+    //   id: 24,
+    //   src: 'images/cherry-blossoms-02.jpg',
+    //   name: 'Cherry Blossoms',
+    //   tag: 'Sketches',
+    // },
+    // {
+    //   id: 26,
+    //   src: 'images/cute-kawaii.jpg',
+    //   name: 'Cute Kawaii Characters',
+    //   tag: 'Doodles',
+    // },
+    {
+      id: 27,
+      src: 'images/palestine-sketch.jpg',
+      name: 'Palestine Sketch',
+      tag: 'Sketches',
+    },
+    {
+      id: 28,
+      src: 'images/sunflower-bookmark-02.jpg',
+      name: 'Sunflower Bookmark',
+      tag: 'Bookmarks',
+    },
+    {
+      id: 34,
+      src: 'images/doodles-02.jpg',
+      name: 'Pink Doodles',
+      tag: 'Doodles',
+    },
+    {
+      id: 30,
+      src: 'images/mandala.jpg',
+      name: 'Mandala Artwork',
+      tag: 'Mandala',
+    },
+    {
+      id: 31,
+      src: 'images/floral-pattern.jpg',
+      name: 'Floral Pattern',
+      tag: 'Florals',
+    },
+    {
+      id: 32,
+      src: 'images/sunflowers.jpg',
+      name: 'Sunflowers',
+      tag: 'Sketches',
+    },
   ]);
 
   ngAfterViewInit(): void {
