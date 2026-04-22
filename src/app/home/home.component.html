@@ -49,7 +49,7 @@
                 @for (item of galleryItems(); track item.id) {
                     <div class="gallery-section__images--image">
                         <div class="image-container">
-                            <img [src]="item.src" [alt]="item.name" loading="lazy">
+                            <img [src]="item.src" [alt]="item.name">
                         </div>
                         <div class="details">
                             <span class="title">{{ item.name }}</span>
