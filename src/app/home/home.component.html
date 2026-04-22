@@ -6,9 +6,9 @@
         </div>
 
         <div class="right-slot">
-            <a (click)="scrollTo('about')" (pointerdown)="scrollTo('about')" style="touch-action: manipulation;">About</a>
-            <a (click)="scrollTo('gallery')" (pointerdown)="scrollTo('gallery')" style="touch-action: manipulation;">Gallery</a>
-            <a (click)="scrollTo('contact')" (pointerdown)="scrollTo('contact')" style="touch-action: manipulation;">Contact</a>
+            <a (click)="scrollTo('about');$event.preventDefault()" (pointerdown)="scrollTo('about');$event.preventDefault()" style="touch-action: manipulation;">About</a>
+            <a (click)="scrollTo('gallery');$event.preventDefault()" (pointerdown)="scrollTo('gallery');$event.preventDefault()" style="touch-action: manipulation;">Gallery</a>
+            <a (click)="scrollTo('contact');$event.preventDefault()" (pointerdown)="scrollTo('contact');$event.preventDefault()" style="touch-action: manipulation;">Contact</a>
         </div>
     </div>
 
