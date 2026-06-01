@@ -127,6 +127,7 @@
                     outline: none;
                     border: none;
                     cursor: pointer;
+                    font-family: "Pacifico", cursive;
 
                     &:hover {
                         background-color: #db2777;
@@ -298,7 +299,7 @@
                     align-items: center;
                     gap: 0.5rem; 
                     background-color: #ec4899;
-                    font-family: cursive;
+                    font-family: "Pacifico", cursive;
                     color: #ffffff;
                     padding-left: 1.5rem; 
                     padding-right: 1.5rem;
@@ -322,7 +323,7 @@
                     align-items: center;
                     gap: 0.5rem; 
                     background: linear-gradient(to right, #a855f7, #ec4899);
-                    font-family: cursive;
+                    font-family: "Pacifico", cursive;
                     color: #ffffff;
                     padding-left: 1.5rem; 
                     padding-right: 1.5rem;
