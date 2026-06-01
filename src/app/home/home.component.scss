@@ -240,6 +240,12 @@
                             margin-bottom: 0.5rem;
                         }
 
+                        & .tags-container {
+                          display: flex;
+                          align-items: center;
+                          gap: 5px;
+                        }
+
                         & .tag {
                             display: inline-block;
                             background-color: #fce7f3;
