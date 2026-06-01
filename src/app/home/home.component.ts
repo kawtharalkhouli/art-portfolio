@@ -116,7 +116,7 @@ export class HomeComponent {
     {
       id: 23,
       src: 'images/acrylic-paint.jpg',
-      name: 'Samll Acrylic Sketch',
+      name: 'Small Acrylic Sketch',
       tag: 'Acrylic Paint',
     },
     {
