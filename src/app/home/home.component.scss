@@ -32,7 +32,7 @@
 
             span:not(.material-icons) {
                 color: oklch(40.8% .153 2.432);
-                font-size: 20px;
+                font-size: 1.5rem;
             }
         }
 
@@ -47,6 +47,7 @@
                 transition-duration: 0.15s;
                 color: oklch(52.5% .223 3.958);
                 cursor: pointer;
+                font-size: 1.125rem;
 
                 &:hover {
                     color: oklch(65.6% .241 354.308);
@@ -87,6 +88,7 @@
                 padding-top: 0.5rem; 
                 padding-bottom: 0.5rem;
                 margin-bottom: 1.5rem; 
+                font-size: 1.25rem;
                 svg {
                     stroke: oklch(59.2% .249 .584);
                 }
@@ -111,12 +113,14 @@
                 margin-right: auto;
                 color: oklch(45.9% .187 3.815);
                 margin-bottom: 2rem; /* mb-8 = 32px */
+                font-size: 1.5rem;
             }
 
             &__actions {
                 button {
                     background-color: #ec4899;
                     color: #ffffff;
+                    font-size: 1.25rem;
                     padding-left: 2rem; 
                     padding-right: 2rem;
                     padding-top: 0.75rem; 
@@ -127,7 +131,7 @@
                     outline: none;
                     border: none;
                     cursor: pointer;
-                    font-family: "Pacifico", cursive;
+                    font-family: "Caveat", cursive;
 
                     &:hover {
                         background-color: #db2777;
@@ -149,7 +153,7 @@
 
             &__title {
                 color: oklch(40.8% .153 2.432);
-                font-size: 1.25rem;
+                font-size: 1.75rem;
                 line-height: 1.5;
                 font-weight: 500;
                 text-align: center;
@@ -159,6 +163,8 @@
             &__text {
                 color: oklch(45.9% .187 3.815);
                 margin-bottom: 1rem;
+                font-size: 1.35rem;
+                text-align: center;
             }
 
             &__text-2 {
@@ -193,7 +199,7 @@
                 text-align: center;
                 margin-bottom: 3rem;
                 color: #831843;
-                font-size: 20px;
+                font-size: 2rem;
                 font-weight: 500;
                 margin-top: 0;
             }
@@ -234,7 +240,7 @@
                         flex-direction: column;
 
                         & .title {
-                            font-size: 1.125rem;
+                            font-size: 1.25rem;
                             color: oklch(40.8% .153 2.432);
                             font-weight: 500;
                             line-height: 1.5;
@@ -256,7 +262,7 @@
                             padding-top: 0.25rem;   
                             padding-bottom: 0.25rem;
                             border-radius: 9999px;
-                            font-size: 0.875rem;
+                            font-size: 1rem;
                             line-height: 1.25rem;
                             width: fit-content;
                         }
@@ -279,13 +285,13 @@
                 color: oklch(40.8% .153 2.432);
                 margin-bottom: 1.5rem;
                 font-weight: 500;
-                font-size: 20px;
+                font-size: 1.75rem;
             }
 
             &__desc {
                 color: oklch(45.9% .187 3.815);
                 margin-bottom: 2rem;
-                font-size: 16px;
+                font-size: 1.25rem;
             }
 
             &__actions {
@@ -298,8 +304,9 @@
                     display: flex;
                     align-items: center;
                     gap: 0.5rem; 
+                    font-size: 1.25rem;
                     background-color: #ec4899;
-                    font-family: "Pacifico", cursive;
+                    font-family: "Caveat", cursive;
                     color: #ffffff;
                     padding-left: 1.5rem; 
                     padding-right: 1.5rem;
@@ -322,8 +329,9 @@
                     display: flex;
                     align-items: center;
                     gap: 0.5rem; 
+                    font-size: 1.25rem;
                     background: linear-gradient(to right, #a855f7, #ec4899);
-                    font-family: "Pacifico", cursive;
+                    font-family: "Caveat", cursive;
                     color: #ffffff;
                     padding-left: 1.5rem; 
                     padding-right: 1.5rem;
@@ -383,6 +391,7 @@
                 display: flex;
                 justify-content: center;
                 gap: 5px;
+                font-size: 1.5rem;
 
                 & .material-icons {
                     color: oklch(65.6% .241 354.308);
@@ -438,7 +447,7 @@
         gap: 10px;
 
         a {
-          font-size: 14px;
+          font-size: 1rem;
         }
       }
 
@@ -458,7 +467,7 @@
         }
 
         &__description {
-          font-size: 14px;
+          font-size: 1.25rem;
         }
       }
 
