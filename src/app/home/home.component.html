@@ -6,8 +6,8 @@
         </div>
 
         <div class="right-slot">
-            <a (click)="scrollTo('about');$event.preventDefault()" (pointerdown)="scrollTo('about');$event.preventDefault()" style="touch-action: manipulation;">About</a>
-            <a (click)="scrollTo('gallery');$event.preventDefault()" (pointerdown)="scrollTo('gallery');$event.preventDefault()" style="touch-action: manipulation;">Gallery</a>
+            <a (click)="scrollTo('about');$event.preventDefault()" (pointerdown)="scrollTo('about');$event.preventDefault()" style="touch-action: manipulation;">About Me</a>
+            <a (click)="scrollTo('gallery');$event.preventDefault()" (pointerdown)="scrollTo('gallery');$event.preventDefault()" style="touch-action: manipulation;">Artworks</a>
             <a (click)="scrollTo('contact');$event.preventDefault()" (pointerdown)="scrollTo('contact');$event.preventDefault()" style="touch-action: manipulation;">Contact</a>
         </div>
     </div>
@@ -44,7 +44,7 @@
         </div>
 
         <div class="gallery-section" #gallerySection>
-            <p class="gallery-section__title">My Gallery</p>
+            <p class="gallery-section__title">My Artworks</p>
 
             <div class="gallery-section__images" #galleryGrid>
                 @for (item of galleryItems(); track item.id) {
