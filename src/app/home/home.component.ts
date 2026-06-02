@@ -331,10 +331,76 @@ export class HomeComponent {
       tag: ['Sketches', 'Doodles'],
     },
     {
-      id: 451,
+      id: 51,
       src: 'images/kawaii-doodles-03.jpg',
       name: 'Kawaii Doodles 🫐💜✨🌙🌿🌸🍰',
       tag: ['Doodles', 'Kawaii'],
+    },
+    {
+      id: 52,
+      src: 'images/rose_sketch-1310.jpg',
+      name: 'Rose Sketch 🌷🧸💗🫧🌻🎨',
+      tag: ['Sketches', 'Floral', 'Aesthetic'],
+    },
+    {
+      id: 53,
+      src: 'images/cute_bunny_doodles-1310.jpg',
+      name: 'Cute Bunny Doodle 🐰🫧💗☁️✨',
+      tag: ['Doodles'],
+    },
+    {
+      id: 54,
+      src: 'images/cute-sketch-1310.jpg',
+      name: 'Cute Sketch 🍓🌿🌷✨💖',
+      tag: ['Doodles'],
+    },
+    {
+      id: 55,
+      src: 'images/illustration-02-960.jpg',
+      name: 'Pinterest Inspired Sketch 🦋🌺🌿💗✨',
+      tag: ['Sketches', 'Aesthetic'],
+    },
+    {
+      id: 55,
+      src: 'images/snoopy-960.jpg',
+      name: 'Snoopy Doodle 🧸🤎✨🤍🌸',
+      tag: ['Sketches', 'Doodles'],
+    },
+    {
+      id: 56,
+      src: 'images/illustration-960.jpg',
+      name: 'Pinterest Inspired Sketch 🦋🌺🌿💗✨',
+      tag: ['Sketches', 'Aesthetic'],
+    },
+    {
+      id: 57,
+      src: 'images/ice-bear-1593.jpg',
+      name: 'Ice Bear Bookmark 🧸🤎🤍✨🫧🌙🍯🍪',
+      tag: ['Bookmark', 'Aesthetic', 'Doodles'],
+    },
+    {
+      id: 58,
+      src: 'images/illustration-02-1593.jpg',
+      name: 'Pinterest Inspired Sketch 🌸🍒✨🌷🫧',
+      tag: ['Sketches', 'Aesthetic'],
+    },
+    {
+      id: 59,
+      src: 'images/illustration-01-1593.jpg',
+      name: 'Pinterest Inspired Sketch 🍒❤️🌿✨💖',
+      tag: ['Sketches', 'Aesthetic'],
+    },
+    {
+      id: 60,
+      src: 'images/ice-bear-900.jpg',
+      name: 'Ice Bear & Panda Doodles 💖🌸💗🧸🩷🌷💖',
+      tag: ['Doodles', 'Aesthetic'],
+    },
+    {
+      id: 61,
+      src: 'images/cherry-blossoms-900.jpg',
+      name: 'Cherry Blossoms Artwork ❤️🍒🌺✨💗',
+      tag: ['Florals', 'Aesthetic', 'Sketches'],
     },
   ]);
 
