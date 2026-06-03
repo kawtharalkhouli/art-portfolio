@@ -43,11 +43,23 @@
             
         </div>
 
+        <div>
+            <app-featured></app-featured>
+        </div>
+
         <div class="gallery-section" #gallerySection>
             <p class="gallery-section__title">My Artworks</p>
 
+            <div class="gallery-section__filters">
+                @for (filter of filterTags(); track filter) {
+                    <button class="filter-tag" [class.active]="activeFilter() === filter" (click)="setFilter(filter)" (pointerdown)="$event.stopPropagation()">
+                        {{ filter }}
+                    </button>
+                }
+            </div>
+
             <div class="gallery-section__images" #galleryGrid>
-                @for (item of galleryItems(); track item.id) {
+                @for (item of filteredGalleryItems(); track item.id) {
                     <div class="gallery-section__images--image">
                         <div class="image-container">
                             <img [src]="item.src" [alt]="item.name">

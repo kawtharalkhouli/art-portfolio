@@ -1,4 +1,5 @@
-import { Component, ElementRef, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, computed, ElementRef, HostListener, signal, ViewChild, WritableSignal } from '@angular/core';
+import { FeaturedComponent } from './featured/featured.component';
 
 interface GalleryItems {
   id: number;
@@ -9,7 +10,7 @@ interface GalleryItems {
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [FeaturedComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -20,7 +21,13 @@ export class HomeComponent {
   @ViewChild('galleryGrid') galleryGrid!: ElementRef<HTMLElement>;
   private _resizeObserver!: ResizeObserver;
   galleryColumns: WritableSignal<number> = signal<number>(5);
+  activeFilter: WritableSignal<string> = signal<string>('All');
+  filterTags: WritableSignal<string[]> = signal(['All', 'Florals', 'Doodles', 'Sketches', 'Kawaii', 'Watercolor', 'Aesthetic', 'Mandala', 'Bookmarks', 'Acrylic Paint', 'Polaroids']);
 
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  
   // Gallery Items
   galleryItems: WritableSignal<GalleryItems[]> = signal<GalleryItems[]>([
     {
@@ -38,51 +45,51 @@ export class HomeComponent {
     {
       id: 3,
       src: 'images/cute-doodles-13.jpg',
-      name: 'Pinterest Inspired Doodles 🌙🍒🌥',
+      name: 'Pinterest Inspired Doodles 🌙🍒',
       tag: ['Doodles'],
     },
     {
       id: 4,
       src: 'images/doodles.jpg',
-      name: 'Cute Doodles 🌼🐝🍯🌞💛🌼',
+      name: 'Cute Doodles 🌼🐝🍯💛',
       tag: ['Doodles'],
     },
     {
       id: 5,
       src: 'images/cute-doodles.jpg',
-      name: 'Cute Doodles 🍯✨💛🐝✨🍯',
+      name: 'Cute Doodles ✨💛🐝🍯',
       tag: ['Doodles'],
     },
     {
       id: 6,
       src: 'images/pink-doodles.jpg',
-      name: 'Pink Doodles 💖🌸💗🧸🩷🌷💖',
+      name: 'Pink Doodles 🌸🧸🩷🌷',
       tag: ['Doodles'],
     },
     {
       id: 7,
       src: 'images/bunny-hearts-and-pumpkin-smiles.jpg',
-      name: 'Pinterest Inspired Doodles 🍑🧡🍊🌼☀️✨',
+      name: 'Pinterest Inspired Doodles 🧡🌼✨',
       tag: ['Doodles', 'Kawaii'],
     },
     {
       id: 8,
       src: 'images/heart-floral-wreath.jpg',
-      name: 'Heart Floral Wreath 🌸🌼🌈🌙💫',
+      name: 'Heart Floral Wreath 🌸🌼💫',
       tag: ['Watercolor', 'Florals', 'Aesthetic'],
     },
     
     {
       id: 9,
       src: 'images/pink-floral-artwork.jpg',
-      name: 'Pink Floral Artwork 🌸🌼🌷🌺',
+      name: 'Pink Floral Artwork 🌸🌷🌺',
       tag: ['Florals'],
     },
     
     {
       id: 10,
       src: 'images/spring-in-pastel-blooms.jpg',
-      name: 'Spring Coded Artwork 💗✨🩷💖✨💗',
+      name: 'Spring Coded Artwork ✨🩷💗',
       tag: ['Florals', 'Aesthetic'],
     },
     
@@ -101,7 +108,7 @@ export class HomeComponent {
     {
       id: 13,
       src: 'images/whimsical-doodles.jpg',
-      name: 'Pinterest Inspired Doodles 🐥🍩🍒🎀',
+      name: 'Pinterest Inspired Doodles 🍩🍒🎀',
       tag: ['Sketches', 'Doodles'],
     },
     {
@@ -119,31 +126,31 @@ export class HomeComponent {
     {
       id: 16,
       src: 'images/acrylic-paint.jpg',
-      name: 'Small Acrylic Sketch 💗✨🩷💖✨💗',
+      name: 'Small Acrylic Sketch 🩷💖💗',
       tag: ['Acrylic Paint', 'Florals'],
     },
     {
       id: 17,
       src: 'images/palestine-sketch.jpg',
-      name: 'Palestine Sketch 🖤🤍💚❤️🕊🌿🌿🫒🌾✨',
+      name: 'Palestine Sketch 🖤🤍💚❤️🌿🫒🌾',
       tag: ['Sketches'],
     },
     {
       id: 18,
       src: 'images/sunflower-bookmark-02.jpg',
-      name: 'Sunflower Bookmark 🌻🧡✨🌞🌿🌻',
+      name: 'Sunflower Bookmark 🧡✨🌿🌻',
       tag: ['Sketches', 'Bookmarks', 'Florals'],
     },
     {
       id: 19,
       src: 'images/doodles-02.jpg',
-      name: 'Pink Doodles 💕🎀🌷🤍✨💖',
+      name: 'Pink Doodles 💕🎀🌷💖',
       tag: ['Doodles'],
     },
     {
       id: 20,
       src: 'images/cute-doodles-03.jpg',
-      name: 'Cute Pinterest Inspired Doodles 🦋🍓🌸✨🫧🦋',
+      name: 'Cute Pinterest Inspired Doodles 🦋🍓🌸🫧',
       tag: ['Doodles', 'Aesthetic'],
     },
     {
@@ -355,7 +362,7 @@ export class HomeComponent {
       tag: ['Doodles'],
     },
     {
-      id: 55,
+      id: 78,
       src: 'images/illustration-02-960.jpg',
       name: 'Pinterest Inspired Sketch 🦋🌺🌿💗✨',
       tag: ['Sketches', 'Aesthetic'],
@@ -376,7 +383,7 @@ export class HomeComponent {
       id: 57,
       src: 'images/ice-bear-1593.jpg',
       name: 'Ice Bear Bookmark 🧸🤎🤍✨🫧🌙🍯🍪',
-      tag: ['Bookmark', 'Aesthetic', 'Doodles'],
+      tag: ['Bookmarks', 'Aesthetic', 'Doodles'],
     },
     {
       id: 58,
@@ -402,7 +409,113 @@ export class HomeComponent {
       name: 'Cherry Blossoms Artwork ❤️🍒🌺✨💗',
       tag: ['Florals', 'Aesthetic', 'Sketches'],
     },
+    {
+      id: 62,
+      src: 'images/cute-characters-sketch.jpg',
+      name: 'Cute Characters Sketch 🐰🧸✨🤍💙',
+      tag: ['Doodles', 'Sketches'],
+    },
+    {
+      id: 63,
+      src: 'images/floral-pattern-01.jpg',
+      name: 'Floral Pattern Sketch 💐🌿🌸✨🌺',
+      tag: ['Florals', 'Sketches'],
+    },
+    {
+      id: 64,
+      src: 'images/sunflower-bookmark-01.jpg',
+      name: 'Sunflower Bookmark 🌻🌿✨',
+      tag: ['Florals', 'Bookmarks', 'Aesthetic'],
+    },
+    {
+      id: 65,
+      src: 'images/random-sketch-02.jpg',
+      name: 'Random Floral Sketches 🌺🌸🌷💐✨',
+      tag: ['Florals', 'Sketches'],
+    },
+    {
+      id: 66,
+      src: 'images/ice-bear-panda-doodle.jpg',
+      name: 'Ice Bear & Panda Doodles 🧸🤍',
+      tag: ['Doodles', 'Aesthetic'],
+    },
+    {
+      id: 67,
+      src: 'images/floral-pattern-03.jpg',
+      name: 'Floral Pattern Sketch 💗🌷✨🌿',
+      tag: ['Florals', 'Aesthetic', 'Sketches'],
+    },
+    {
+      id: 68,
+      src: 'images/kawaii-cat-doodle.jpg',
+      name: 'Kawaii Cat Doodle 🤍🌸🫧',
+      tag: ['Kawaii', 'Aesthetic', 'Doodles'],
+    },
+    {
+      id: 69,
+      src: 'images/pinterest-inspired-sketch-03.jpg',
+      name: 'Pinterest Inspired Sketch 💫🌷',
+      tag: ['Sketches', 'Doodles'],
+    },
+    {
+      id: 70,
+      src: 'images/cute-characters-sketch-01.jpg',
+      name: 'Cute Characters Doodles 🧸💙🤍💜✨',
+      tag: ['Kawaii', 'Doodles'],
+    },
+    {
+      id: 71,
+      src: 'images/heart-doodles.jpg',
+      name: 'Cute Doodles 🍓🦋🌷🎨✨',
+      tag: ['Doodles'],
+    },
+    {
+      id: 72,
+      src: 'images/lilies-pencil-sketch.jpg',
+      name: 'Lilies Pencil Sketch 🌷🎨✨',
+      tag: ['Florals', 'Sketches'],
+    },
+    {
+      id: 73,
+      src: 'images/random-sketch.jpg',
+      name: 'Random Florals Sketch 🧸💗🌻🌷🎨✨🫧',
+      tag: ['Florals', 'Sketches'],
+    },
+    {
+      id: 74,
+      src: 'images/pinterest-inspired-sketch-04.jpg',
+      name: 'Pinterest Inspired Sketch 🌻🌷🎨',
+      tag: ['Sketches'],
+    },
+    {
+      id: 75,
+      src: 'images/floral-pattern-02.jpg',
+      name: 'Floral Patterns 🌸✨💗🌷🌻',
+      tag: ['Sketches', 'Florals', 'Aesthetic'],
+    },
+    {
+      id: 76,
+      src: 'images/ice-bear-sketch.jpg',
+      name: 'Ice Bear Doodles ✨🤍🧸',
+      tag: ['Sketches', 'Doodles'],
+    },
+    {
+      id: 77,
+      src: 'images/honey-doodle.jpg',
+      name: 'Cute Kawaii Doodle 🧸🍯✨💛🐝✨🍯🧸',
+      tag: ['Kawaii', 'Doodles'],
+    },
   ]);
+
+  filteredGalleryItems = computed(() => {
+    const filter = this.activeFilter();
+    if (filter === 'All') return this.galleryItems();
+    return this.galleryItems().filter(item => item.tag.some(t => t.toLowerCase() === filter.toLowerCase()));
+  });
+
+  setFilter(filter: string): void {
+    this.activeFilter.set(filter)
+  }
 
   ngAfterViewInit(): void {
     this._reseize();
