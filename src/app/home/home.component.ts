@@ -37,10 +37,22 @@ export class HomeComponent {
       tag: ['Doodles', 'Aesthetic'],
     },
     {
+      id: 88,
+      src: 'images/art-12.jpg',
+      name: 'Cute Bow Symbol Doodle 🎀💖🌷',
+      tag: ['Doodles', 'Aesthetic'],
+    },
+    {
       id: 2,
       src: 'images/artwork-02.jpg',
       name: 'Lilies Moon Sketch 🌙✨🌸🌿🤍',
       tag: ['Florals', 'Sketches', 'Aesthetic'],
+    },
+    {
+      id: 89,
+      src: 'images/art-11.jpg',
+      name: 'Pinterest Inspired Doodles 🎀 🏹 🦋 💗 🩷 🌸 ✨ 🫧 💕',
+      tag: ['Doodles', 'Aesthetic'],
     },
     {
       id: 3,
@@ -55,6 +67,12 @@ export class HomeComponent {
       tag: ['Florals', 'Aesthetic', 'Sketches'],
     },
     {
+      id: 90,
+      src: 'images/art-03.jpg',
+      name: 'Aesthetic Florals Sketch 🌷🌿✨💐',
+      tag: ['Florals', 'Aesthetic', 'Sketches'],
+    },
+    {
       id: 5,
       src: 'images/artwork-11.jpg',
       name: 'Snoopy Playing the Guitar Doodle 🎸🎶✨💗🎵🧸🎧',
@@ -65,6 +83,60 @@ export class HomeComponent {
       src: 'images/artwork-03.jpg',
       name: 'Pinterest Inspired Sketch 🕸️🕷️💗❤️🖤✨🌙🫧',
       tag: ['Florals', 'Sketches', 'Aesthetic'],
+    },
+    {
+      id: 91,
+      src: 'images/art-14.jpg',
+      name: 'Pinterset Inspired Sketch 🦋🌻💛🌞',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 92,
+      src: 'images/art-09.jpg',
+      name: 'Kawaii Pink Cat 🦋🌻💛🌞',
+      tag: ['Aesthetic', 'Doodles', 'Kawaii'],
+    },
+    {
+      id: 93,
+      src: 'images/art-15.jpg',
+      name: 'Pinterest Inspired Skecth ☀️🌊🌙✨',
+      tag: ['Aesthetic', 'Sketch'],
+    },
+    {
+      id: 94,
+      src: 'images/art-17.jpg',
+      name: 'Cute Duck Doodle Sketch ✨⭐🤍',
+      tag: ['Aesthetic', 'Sketch', 'Doodles'],
+    },
+    {
+      id: 95,
+      src: 'images/art-04.jpg',
+      name: 'Taylor Swift Cardigan Sketch 🌸🩶🩷🫧',
+      tag: ['Aesthetic', 'Sketch'],
+    },
+    {
+      id: 96,
+      src: 'images/art-05.jpg',
+      name: 'Lyrics Sketch Combo 🩶💗🫧🌸✨🎀',
+      tag: ['Aesthetic', 'Sketch'],
+    },
+    {
+      id: 97,
+      src: 'images/art-08.jpg',
+      name: 'Pink Doodles 🌸💗🩷🤍🩶',
+      tag: ['Aesthetic', 'Doodles'],
+    },
+    {
+      id: 98,
+      src: 'images/art-16.jpg',
+      name: 'Cute Swan Doodle Sketch 🩷🤍🩶',
+      tag: ['Aesthetic', 'Doodles'],
+    },
+    {
+      id: 99,
+      src: 'images/art-13.jpg',
+      name: 'Cute Pinterest Inspired Sketch 🖤🩷🩶✨',
+      tag: ['Aesthetic', 'Doodles'],
     },
     {
       id: 7,
