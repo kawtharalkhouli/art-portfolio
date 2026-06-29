@@ -69,7 +69,7 @@ export class HomeComponent {
     {
       id: 90,
       src: 'images/art-03.jpg',
-      name: 'Aesthetic Florals Sketch 🌷🌿✨💐',
+      name: 'Aesthetic Sketch 🌷🌿✨💐',
       tag: ['Florals', 'Aesthetic', 'Sketches'],
     },
     {
