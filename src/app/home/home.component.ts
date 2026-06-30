@@ -43,15 +43,27 @@ export class HomeComponent {
       tag: ['Doodles', 'Aesthetic'],
     },
     {
+      id: 88,
+      src: 'images/cute-artwork-10.jpg',
+      name: 'Cute Kawaii Character Doodle 🧸🩷🌷🎀',
+      tag: ['Doodles', 'Aesthetic', 'Kawaii'],
+    },
+    {
       id: 2,
       src: 'images/artwork-02.jpg',
       name: 'Lilies Moon Sketch 🌙✨🌸🌿🤍',
       tag: ['Florals', 'Sketches', 'Aesthetic'],
     },
     {
+      id: 88,
+      src: 'images/cute-artwork-05.jpg',
+      name: 'Pinterset Inspired Doodles ☕🧸🩷🌸✨',
+      tag: ['Doodles', 'Aesthetic'],
+    },
+    {
       id: 89,
       src: 'images/art-11.jpg',
-      name: 'Pinterest Inspired Doodles 🎀 🏹 🦋 💗 🩷 🌸 ✨ 🫧 💕',
+      name: 'Pinterest Inspired Doodles 🎀🏹🦋💗🩷🌸✨🫧💕',
       tag: ['Doodles', 'Aesthetic'],
     },
     {
@@ -73,6 +85,12 @@ export class HomeComponent {
       tag: ['Florals', 'Aesthetic', 'Sketches'],
     },
     {
+      id: 88,
+      src: 'images/cute-artwork-08.jpg',
+      name: 'Pinterset Inspired Doodles 🎀🌸🩷💫',
+      tag: ['Doodles', 'Aesthetic'],
+    },
+    {
       id: 5,
       src: 'images/artwork-11.jpg',
       name: 'Snoopy Playing the Guitar Doodle 🎸🎶✨💗🎵🧸🎧',
@@ -91,6 +109,12 @@ export class HomeComponent {
       tag: ['Aesthetic', 'Sketches'],
     },
     {
+      id: 88,
+      src: 'images/cute-artwork-02.jpg',
+      name: 'Pinterset Inspired Doodles 🎀🌸🩷💫',
+      tag: ['Doodles', 'Aesthetic'],
+    },
+    {
       id: 92,
       src: 'images/art-09.jpg',
       name: 'Kawaii Pink Cat 🦋🌻💛🌞',
@@ -101,6 +125,12 @@ export class HomeComponent {
       src: 'images/art-15.jpg',
       name: 'Pinterest Inspired Skecth ☀️🌊🌙✨',
       tag: ['Aesthetic', 'Sketch'],
+    },
+    {
+      id: 88,
+      src: 'images/cute-artwork-09.jpg',
+      name: 'Cute Kawaii Cat Doodle 🌸🩷💫',
+      tag: ['Doodles', 'Aesthetic', 'Kawaii'],
     },
     {
       id: 94,
