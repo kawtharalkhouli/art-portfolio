@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0;  font-family: "Caveat", cursive;}
+body { 
+  margin: 0;  
+  font-family: "Caveat", cursive;
+  background: linear-gradient(135deg, oklch(98% 0.03 80), oklch(96% 0.05 40), oklch(97% 0.04 350));
+  scrollbar-width: none;
+}
 
 html, body {
   overflow-x: hidden;
