@@ -31,6 +31,72 @@ export class HomeComponent {
   // Gallery Items
   galleryItems: WritableSignal<GalleryItems[]> = signal<GalleryItems[]>([
     {
+      id: 110,
+      src: 'images/random-sketch-01.jpg',
+      name: 'Cute Sketch',
+      tag: ['Doodles', 'Aesthetic', 'Sketches'],
+    },
+    {
+      id: 111,
+      src: 'images/random-sketch-03.jpg',
+      name: 'Heart Floral Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 112,
+      src: 'images/random-sketch-04.jpg',
+      name: 'Random Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
+      id: 113,
+      src: 'images/random-sketch-05.jpg',
+      name: 'Florals Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
+      id: 114,
+      src: 'images/random-sketch-06.jpg',
+      name: 'Sunflowers Wreath Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
+      id: 115,
+      src: 'images/random-sketch-12.jpg',
+      name: 'Heart Florals Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
+      id: 116,
+      src: 'images/random-sketch-07.jpg',
+      name: 'Sunflowers Field Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
+      id: 117,
+      src: 'images/random-sketch-08.jpg',
+      name: 'Lilies Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
+      id: 118,
+      src: 'images/random-sketch-09.jpg',
+      name: 'Aesthetic Summer Skecth',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 119,
+      src: 'images/random-sketch-11.jpg',
+      name: 'Cherry Blossoms Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
+      id: 120,
+      src: 'images/random-sketch-10.jpg',
+      name: 'Heart Floral Wreath Sketch',
+      tag: ['Aesthetic', 'Sketches', 'Florals'],
+    },
+    {
       id: 1,
       src: 'images/artwork-14.jpg',
       name: 'Pinterest Inspired Doodles',
