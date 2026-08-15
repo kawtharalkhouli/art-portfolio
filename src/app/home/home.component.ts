@@ -31,10 +31,82 @@ export class HomeComponent {
   // Gallery Items
   galleryItems: WritableSignal<GalleryItems[]> = signal<GalleryItems[]>([
     {
-      id: 110,
-      src: 'images/random-sketch-01.jpg',
-      name: 'Cute Sketch',
-      tag: ['Doodles', 'Aesthetic', 'Sketches'],
+      id: 121,
+      src: 'images/pencil-sketch-15.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 122,
+      src: 'images/pencil-sketch-12.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 123,
+      src: 'images/pencil-sketch-10.jpg',
+      name: 'Aesthetic Celestial Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 124,
+      src: 'images/pencil-sketch-09.jpg',
+      name: 'Aesthetic Celestial Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 125,
+      src: 'images/pencil-sketch-08.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 126,
+      src: 'images/pencil-sketch-07.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 127,
+      src: 'images/pencil-sketch-01.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 128,
+      src: 'images/pencil-sketch-06.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 129,
+      src: 'images/pencil-sketch-05.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 130,
+      src: 'images/pencil-sketch-04.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 131,
+      src: 'images/pencil-sketch-11.jpg',
+      name: 'Aesthetic Sun Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 132,
+      src: 'images/pencil-sketch-13.jpg',
+      name: 'Aesthetic Pencil Sketch',
+      tag: ['Aesthetic', 'Sketches'],
+    },
+    {
+      id: 133,
+      src: 'images/pencil-sketch-14.jpg',
+      name: 'Aesthetic Butterfly Sketch',
+      tag: ['Aesthetic', 'Sketches'],
     },
     {
       id: 111,
