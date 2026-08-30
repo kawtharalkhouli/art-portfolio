@@ -1,39 +1,155 @@
 <section class="home-section">
+    <!-- <svg class="heart-1" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M60 101
+             C53 91 21 74 16 51
+             C12 32 27 21 42 25
+             C51 27 57 34 60 42
+             C64 31 72 24 83 23
+             C100 22 108 37 103 52
+             C96 73 69 88 60 101Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      
+        <path
+          d="M58 98
+             C49 85 25 75 19 53
+             C15 39 24 29 38 29"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity=".55"
+        />
+      
+        <path
+          d="M64 38 C72 28 85 27 94 35"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity=".55"
+        />
+      </svg>
+
+      <svg class="heart-2" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M60 101
+             C53 91 21 74 16 51
+             C12 32 27 21 42 25
+             C51 27 57 34 60 42
+             C64 31 72 24 83 23
+             C100 22 108 37 103 52
+             C96 73 69 88 60 101Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      
+        <path
+          d="M58 98
+             C49 85 25 75 19 53
+             C15 39 24 29 38 29"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity=".55"
+        />
+      
+        <path
+          d="M64 38 C72 28 85 27 94 35"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity=".55"
+        />
+      </svg> -->
     <div class="home-section__header">
         <div class="left-slot">
             <span class="material-icons">favorite</span>
-            <span>My Art Portfolio</span>
+            <span>K</span>
         </div>
 
         <div class="right-slot">
-            <a (click)="scrollTo('about');$event.preventDefault()" (pointerdown)="scrollTo('about');$event.preventDefault()" style="touch-action: manipulation;">About Me</a>
-            <a (click)="scrollTo('gallery');$event.preventDefault()" (pointerdown)="scrollTo('gallery');$event.preventDefault()" style="touch-action: manipulation;">Artworks</a>
+            <a (click)="scrollTo('featured');$event.preventDefault()" (pointerdown)="scrollTo('featured');$event.preventDefault()" style="touch-action: manipulation;">Featured</a>
+            <a (click)="scrollTo('sketchbook');$event.preventDefault()" (pointerdown)="scrollTo('sketchbook');$event.preventDefault()" style="touch-action: manipulation;">Sketchbook</a>
+            <a (click)="scrollTo('florals');$event.preventDefault()" (pointerdown)="scrollTo('florals');$event.preventDefault()" style="touch-action: manipulation;">Florals</a>
             <a (click)="scrollTo('contact');$event.preventDefault()" (pointerdown)="scrollTo('contact');$event.preventDefault()" style="touch-action: manipulation;">Contact</a>
         </div>
     </div>
 
     <div class="home-section__body">
         <div class="main-section">
-            <div class="main-section__welcome-message">
+            <div class="scrapbook-container">
+                <div class="scrapbook-container__upper">
+                    <div class="scrapbook-container__upper--left">
+                        <span class="letter-m">M</span>
+                        <span class="letter-y">Y</span>
+                    </div>
+    
+                    <div class="scrapbook-container__upper--right">
+                        <span class="letter-a">A</span>
+                        <span class="letter-r">R</span>
+                        <span class="letter-t">T</span>
+                    </div>
+                </div>
+
+                <div class="scrapbook-container__lower">
+                    <div class="content">
+                        <span class="letter-p">P</span>
+                        <span class="letter-o-1">O</span>
+                        <span class="letter-r">R</span>
+                        <span class="letter-t">T</span>
+                        <span class="letter-f">F</span>
+                        <span class="letter-o-2">O</span>
+                        <span class="letter-l">L</span>
+                        <span class="letter-i">I</span>
+                        <span class="letter-o-3">O</span>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <svg style="position: absolute; width: 0; height: 0;">
+                <filter id="torn-edge">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+            </svg>
+            <!-- <div class="main-section__welcome-message">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="oklch(45.9% 0.187 3.815deg)"><path d="M479.23-100q-77.77 0-146.92-29.96-69.16-29.96-120.77-81.58-51.62-51.61-81.58-120.96T100-480q0-79.15 30.77-148.5t83.58-120.65q52.8-51.31 123.54-81.08Q408.62-860 488.77-860q75 0 142.15 25.58 67.16 25.58 117.96 70.81 50.81 45.23 80.96 107.5Q860-593.85 860-521.08q0 103.85-61.73 162.46Q736.54-300 640-300h-72.46q-17.08 0-27.31 11.15Q530-277.69 530-262.46q0 18.54 15 38.54T560-178q0 39.61-21.92 58.81Q516.15-100 479.23-100Zm.77-380Zm-184.31 15.69Q310-478.62 310-500q0-21.38-14.31-35.69Q281.38-550 260-550q-21.38 0-35.69 14.31Q210-521.38 210-500q0 21.38 14.31 35.69Q238.62-450 260-450q21.38 0 35.69-14.31Zm120-160Q430-638.62 430-660q0-21.38-14.31-35.69Q401.38-710 380-710q-21.38 0-35.69 14.31Q330-681.38 330-660q0 21.38 14.31 35.69Q358.62-610 380-610q21.38 0 35.69-14.31Zm200 0Q630-638.62 630-660q0-21.38-14.31-35.69Q601.38-710 580-710q-21.38 0-35.69 14.31Q530-681.38 530-660q0 21.38 14.31 35.69Q558.62-610 580-610q21.38 0 35.69-14.31Zm120 160Q750-478.62 750-500q0-21.38-14.31-35.69Q721.38-550 700-550q-21.38 0-35.69 14.31Q650-521.38 650-500q0 21.38 14.31 35.69Q678.62-450 700-450q21.38 0 35.69-14.31ZM479.23-160q9.77 0 15.27-4.81T500-178q0-14-15-31.46t-15-54.69q0-42.77 29-69.31T570-360h70q70.62 0 115.31-41.38Q800-442.77 800-521.08q0-121.38-93.08-200.15Q613.85-800 488.77-800q-137.15 0-232.96 93T160-480q0 133 93.5 226.5T479.23-160Z"/></svg>
                 <span>Welcome to my creative space</span>
-            </div>
+            </div> -->
 
-            <div class="main-section__title">
+            <!-- <div class="main-section__title">
                 <h1>Creating Magic Through Art</h1>
-            </div>
+            </div> -->
 
-            <div class="main-section__description">
+            <!-- <div class="main-section__description">
                 <span>Hi! I’m Kawthar 🎨🧸🌻
                 An artist who loves turning little sparks of imagination into colorful worlds, soft shapes, and dreamy stories. Explore my work, and let’s create something beautiful together 🩷</span>
-            </div>
+            </div> -->
 
-            <div class="main-section__actions">
+            <!-- <div class="main-section__actions">
                 <button (click)="scrollTo('gallery')" (pointerdown)="scrollTo('gallery')" style="touch-action: manipulation;">View My Work</button>
-            </div>
+            </div> -->
         </div>
 
-        <div class="about-me-section" #aboutSection> 
+        <div class="intro-section">
+            <h3>hi, i'm kawthar ✶</h3>
+            <p>i make things, draw things & collect little ideas.</p>
+        </div>
+
+        <!-- <div class="about-me-section" #aboutSection> 
             <div class="content">
                 <p class="about-me-section__title">About me</p>
 
@@ -41,13 +157,29 @@
                 Art has always been a big part of who I am. I love doodling, sketching flowers, creating mandalas, and designing patterns that feel soft and natural. I’m inspired by nature and the small, peaceful moments that often go unnoticed, and I try to capture that feeling in everything I create.
             </div>
             
-        </div>
+        </div> -->
 
-        <div>
+        <div #featuredSection>
             <app-featured></app-featured>
         </div>
 
-        <div class="gallery-section" #gallerySection>
+        <div #sketchbookSection>
+            <app-sketchbook></app-sketchbook>
+        </div>
+
+        <div>
+            <app-pinterest-inspired></app-pinterest-inspired>
+        </div>
+
+        <div #floralsSection>
+            <app-florals></app-florals>
+        </div>
+
+        <div>
+            <app-the-wall></app-the-wall>
+        </div>
+
+        <!-- <div class="gallery-section" #gallerySection>
             <p class="gallery-section__title">My Artworks</p>
 
             <div class="gallery-section__filters">
@@ -75,10 +207,10 @@
                     </div>
                 }
             </div>
-        </div>
+        </div> -->
 
-        <div class="contact-me-section" #contactSection>
-            <div class="content">
+        <div class="contact-me" #contactSection>
+            <!-- <div class="content">
                 <p class="contact-me-section__title">Let's Connect!</p>
                 <p class="contact-me-section__desc">I'd love to hear from you! Whether you want to commission a piece, collaborate,
                     or just say hi, feel free to reach out.</p>
@@ -105,8 +237,15 @@
                         <span>Instagram</span>
                     </button>
                 </div>
+            </div> -->
+            <h3>have an idea? ✶</h3>
+            <p>I'd love to hear from you! Whether you want to commission a piece, collaborate,
+                or just say hi, feel free to reach out.</p>
+
+            <div>
+                <span>Instagram</span>
+                <span>Email</span>
             </div>
-            
         </div>
     </div>
 

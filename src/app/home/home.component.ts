@@ -1,5 +1,9 @@
 import { Component, computed, ElementRef, HostListener, signal, ViewChild, WritableSignal } from '@angular/core';
 import { FeaturedComponent } from './featured/featured.component';
+import { SketchbookComponent } from './sketchbook/sketchbook.component';
+import { PinterestInspiredComponent } from './pinterest-inspired/pinterest-inspired.component';
+import { FloralsComponent } from './florals/florals.component';
+import { TheWallComponent } from './the-wall/the-wall.component';
 
 interface GalleryItems {
   id: number;
@@ -10,13 +14,14 @@ interface GalleryItems {
 
 @Component({
   selector: 'app-home',
-  imports: [FeaturedComponent],
+  imports: [FeaturedComponent, SketchbookComponent, PinterestInspiredComponent, FloralsComponent, TheWallComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  @ViewChild('aboutSection') aboutSection!: ElementRef<HTMLElement>;
-  @ViewChild('gallerySection') gallerySection!: ElementRef<HTMLElement>;
+  @ViewChild('featuredSection') featuredSection!: ElementRef<HTMLElement>;
+  @ViewChild('sketchbookSection') sketchbookSection!: ElementRef<HTMLElement>;
+  @ViewChild('floralsSection') floralsSection!: ElementRef<HTMLElement>;
   @ViewChild('contactSection') contactSection!: ElementRef<HTMLElement>;
   @ViewChild('galleryGrid') galleryGrid!: ElementRef<HTMLElement>;
   private _resizeObserver!: ResizeObserver;
@@ -871,10 +876,11 @@ export class HomeComponent {
     }
   }
 
-  scrollTo(section: 'about' | 'gallery' | 'contact'): void {
+  scrollTo(section: 'featured' | 'sketchbook' | 'florals' | 'contact'): void {
     const map: Record<string, ElementRef<HTMLElement>> = {
-      about: this.aboutSection,
-      gallery: this.gallerySection,
+      featured: this.featuredSection,
+      sketchbook: this.sketchbookSection,
+      florals: this.floralsSection,
       contact: this.contactSection,
     };
 

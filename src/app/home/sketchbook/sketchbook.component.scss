@@ -1,4 +1,4 @@
-.featured-work {
+.sketchbook-section {
     padding: 4rem 0;
 
     &__content {
@@ -11,8 +11,8 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 1.5rem;
-            align-items: flex-end;
             padding: 0 8rem;
+            align-items: flex-end;
 
             & .left-slot {
                 position: relative;
@@ -79,7 +79,6 @@
                 &.card-sticker-4 {
                     transform: rotate(3deg);
                 }
-
                 /* Applies the SVG filter to make the edges look hand-torn and jagged */
                 filter: url(#ripped-paper-edge) drop-shadow(4px 6px 12px rgba(0, 0, 0, 0.08));
 
@@ -88,26 +87,8 @@
                     overflow: hidden;
                     border-radius: 2px;
                     display: flex;
-
-                    &.first-card {
-                        width: 335px;
-                        height: 390px;
-                    }
-
-                    &.second-card {
-                        width: 335px;
-                        height: 300px;
-                    }
-
-                    &.third-card {
-                        width: 335px;
-                        height: 300px;
-                    }
-
-                    &.fourth-card {
-                        width: 335px;
-                        height: 300px;
-                    }
+                    width: 360px;
+                    height: 480px;
                 }
 
                 .sticker-img {
@@ -119,78 +100,34 @@
 
                 .washi-tape {
                     position: absolute;
-                    width: 85px;
-                    height: 24px;
+                    width: 115px;
+                    height: 35px;
                     z-index: 10;
                     opacity: 0.75;
                     backdrop-filter: blur(0.5px);
 
                     filter: url(#tape-edge);
-                }
-                  
-                .tape-left {
-                    top: -12px;
-                    left: -15px;
-                    background-color: #F4A261;
-                    transform: rotate(-35deg);
-                    box-shadow: 1px 2px 3px rgba(0,0,0,0.05);
+                    left: 36%;
+                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+                    top: -13px;
                 }
 
-                & .tape-left-1 {
-                    top: -12px;
-                    left: -15px;
+                & .tape-1 {
                     background-color: #f670ad;
-                    transform: rotate(-35deg);
-                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
                 }
 
-                & .tape-left-2 {
-                    top: -1px;
-                    right: -26px;
-                    background-color: #ff8abb;
-                    transform: rotate(35deg);
-                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+                & .tape-2 {
+                    background-color: #fad1ae;
                 }
 
-                & .tape-left-3 {
-                    top: -1px;
-                    right: -26px;
-                    background-color: #f9d9bc;
-                    transform: rotate(35deg);
-                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+                & .tape-3 {
+                    background-color: #efb5d2;
+                }
+
+                & .tape-4 {
+                    background-color: #F4A261;
                 }
                   
-                .tape-right {
-                    bottom: 0px;
-                    right: -23px;
-                    background-color: #faa7ce;
-                    transform: rotate(-30deg);
-                    box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.05);
-                }
-
-                & .tape-right-1 {
-                    bottom: 0px;
-                    right: -23px;
-                    background-color: #fad1ae;
-                    transform: rotate(-30deg);
-                    box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.05);
-                }
-
-                & .tape-right-2 {
-                    bottom: 0px;
-                    left: -23px;
-                    background-color: #fbbd97;
-                    transform: rotate(30deg);
-                    box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.05);
-                }
-
-                & .tape-right-3 {
-                    top: 0px;
-                    left: -23px;
-                    background-color: #efb5d2;
-                    transform: rotate(-30deg);
-                    box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.05);
-                }
                   
                 .torn-filter-svg {
                     position: absolute;

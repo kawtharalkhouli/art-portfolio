@@ -4,7 +4,7 @@ html, body { height: 100%; }
 body { 
   margin: 0;  
   font-family: "Caveat", cursive;
-  background: linear-gradient(135deg, oklch(98% 0.03 80), oklch(96% 0.05 40), oklch(97% 0.04 350));
+  background: linear-gradient(135deg, #ffd8e2, #ffdee8, #fff0d2);
   scrollbar-width: none;
 }
 
@@ -21,5 +21,17 @@ html, body {
   font-family: "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 500;
+  font-style: normal;
+}
+
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
   font-style: normal;
 }
