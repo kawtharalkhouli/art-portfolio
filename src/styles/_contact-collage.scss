@@ -1,0 +1,55 @@
+app-home .contact-journal {
+  padding: 85px 0 75px;
+  background: #e6bbc9;
+  isolation: isolate;
+  .contact-me { margin: 0 auto; width: min(660px, calc(100% - 60px)); }
+}
+app-home .contact-collage {
+  position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+  background-image: radial-gradient(#98627316 .8px, transparent .8px);
+  background-size: 3px 3px;
+  &__scrap {
+    position: absolute; display: block;
+    clip-path: polygon(0 3%, 12% 0, 24% 2%, 35% 0, 46% 3%, 58% 1%, 71% 3%, 84% 0, 100% 2%, 98% 18%, 100% 35%, 98% 51%, 100% 69%, 98% 85%, 100% 98%, 86% 100%, 72% 98%, 59% 100%, 45% 97%, 31% 100%, 17% 98%, 0 100%, 2% 82%, 0 65%, 2% 46%, 0 26%);
+  }
+  &__rose {
+    width: 44%; height: 75%; left: -7%; top: -12%; transform: rotate(-13deg);
+    background-color: #d6a0b4;
+    background-image: radial-gradient(#fff5ed33 .8px, transparent .8px); background-size: 4px 4px;
+  }
+  &__grid {
+    width: 34%; height: 64%; right: -5%; top: -8%; transform: rotate(12deg); background-color: #fff1ee;
+    background-image: linear-gradient(#b889a330 1px, transparent 1px), linear-gradient(90deg, #b889a330 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  &__bow {
+    position: absolute; left: 28%; top: 2px; width: 130px; height: auto;
+    transform: rotate(-13deg); filter: drop-shadow(2px 3px 1px #74462c20);
+  }
+  &__stripes {
+    left: -5%; bottom: -25px; width: 35%; height: 45%; transform: rotate(12deg);
+    background: repeating-linear-gradient(135deg, #f6b8ce 0 6px, #fff0e9 6px 13px);
+    border: 8px solid #fff1e9;
+  }
+  &__flowers {
+    position: absolute; right: 3%; bottom: 8px; width: 155px; height: auto;
+    transform: rotate(12deg); filter: drop-shadow(2px 3px 1px #74462c20);
+  }
+  &__blush {
+    left: 30%; bottom: -80px; width: 42%; height: 145px; transform: rotate(-7deg);
+    background-color: #f6d7db;
+    background-image: repeating-linear-gradient(0deg, transparent 0 23px, #c298ad35 23px 24px);
+    border-top: 6px solid #fff2e9;
+  }
+}
+@media (max-width: 700px) {
+  app-home .contact-journal { padding: 80px 0 65px; }
+  app-home .contact-collage {
+    &__rose { width: 65%; height: 55%; }
+    &__grid { width: 55%; height: 50%; }
+    &__bow { left: 35%; width: 92px; top: 0; }
+    &__stripes { width: 58%; height: 35%; }
+    &__flowers { right: -5px; width: 87px; bottom: 0; }
+    &__blush { left: 17%; width: 65%; height: 125px; }
+  }
+}

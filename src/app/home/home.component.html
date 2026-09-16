@@ -1,181 +1,74 @@
 <section class="home-section">
-    <!-- <svg class="heart-1" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M60 101
-             C53 91 21 74 16 51
-             C12 32 27 21 42 25
-             C51 27 57 34 60 42
-             C64 31 72 24 83 23
-             C100 22 108 37 103 52
-             C96 73 69 88 60 101Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      
-        <path
-          d="M58 98
-             C49 85 25 75 19 53
-             C15 39 24 29 38 29"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          opacity=".55"
-        />
-      
-        <path
-          d="M64 38 C72 28 85 27 94 35"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          opacity=".55"
-        />
-      </svg>
-
-      <svg class="heart-2" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M60 101
-             C53 91 21 74 16 51
-             C12 32 27 21 42 25
-             C51 27 57 34 60 42
-             C64 31 72 24 83 23
-             C100 22 108 37 103 52
-             C96 73 69 88 60 101Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      
-        <path
-          d="M58 98
-             C49 85 25 75 19 53
-             C15 39 24 29 38 29"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          opacity=".55"
-        />
-      
-        <path
-          d="M64 38 C72 28 85 27 94 35"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          opacity=".55"
-        />
-      </svg> -->
-    <div class="home-section__header">
-        <div class="left-slot">
+    <div class="home-section__header" #navigationHeader>
+        <a href="#main" aria-label="Back to top" class="left-slot" (click)="scrollTo('main');$event.preventDefault()" style="touch-action: manipulation;">
             <span class="material-icons">favorite</span>
             <span>K</span>
-        </div>
+        </a>
 
-        <div class="right-slot">
-            <a (click)="scrollTo('featured');$event.preventDefault()" (pointerdown)="scrollTo('featured');$event.preventDefault()" style="touch-action: manipulation;">Featured</a>
-            <a (click)="scrollTo('sketchbook');$event.preventDefault()" (pointerdown)="scrollTo('sketchbook');$event.preventDefault()" style="touch-action: manipulation;">Sketchbook</a>
-            <a (click)="scrollTo('florals');$event.preventDefault()" (pointerdown)="scrollTo('florals');$event.preventDefault()" style="touch-action: manipulation;">Florals</a>
-            <a (click)="scrollTo('contact');$event.preventDefault()" (pointerdown)="scrollTo('contact');$event.preventDefault()" style="touch-action: manipulation;">Contact</a>
-        </div>
+        <button class="menu-toggle" #menuToggle type="button" (click)="mobileMenuOpen.set(!mobileMenuOpen())" [attr.aria-expanded]="mobileMenuOpen()" aria-controls="portfolio-navigation" [attr.aria-label]="mobileMenuOpen() ? 'Close navigation menu' : 'Open navigation menu'">
+            <span aria-hidden="true">{{ mobileMenuOpen() ? '×' : '☰' }}</span><span>Menu</span>
+        </button>
+        <nav class="right-slot" id="portfolio-navigation" aria-label="Portfolio sections" [class.is-open]="mobileMenuOpen()">
+            <a href="#featured" (click)="scrollTo('featured'); $event.preventDefault()">Featured</a>
+            <a href="#sketchbook" (click)="scrollTo('sketchbook'); $event.preventDefault()">Sketchbook</a>
+            <a href="#pinterest" (click)="scrollTo('pinterest'); $event.preventDefault()">Pinterest Inspired</a>
+            <a href="#florals" (click)="scrollTo('florals'); $event.preventDefault()">Florals</a>
+            <a href="#wall" (click)="scrollTo('wall'); $event.preventDefault()">The Wall</a>
+            <a href="#contact" (click)="scrollTo('contact'); $event.preventDefault()">Contact</a>
+        </nav>
     </div>
 
     <div class="home-section__body">
-        <div class="main-section">
-            <div class="scrapbook-container">
-                <div class="scrapbook-container__upper">
-                    <div class="scrapbook-container__upper--left">
-                        <span class="letter-m">M</span>
-                        <span class="letter-y">Y</span>
-                    </div>
-    
-                    <div class="scrapbook-container__upper--right">
-                        <span class="letter-a">A</span>
-                        <span class="letter-r">R</span>
-                        <span class="letter-t">T</span>
-                    </div>
-                </div>
-
-                <div class="scrapbook-container__lower">
-                    <div class="content">
-                        <span class="letter-p">P</span>
-                        <span class="letter-o-1">O</span>
-                        <span class="letter-r">R</span>
-                        <span class="letter-t">T</span>
-                        <span class="letter-f">F</span>
-                        <span class="letter-o-2">O</span>
-                        <span class="letter-l">L</span>
-                        <span class="letter-i">I</span>
-                        <span class="letter-o-3">O</span>
-                    </div>
-                </div>
-                
-                
+        <div class="main-section cover" #mainSection id="main">
+            <div class="striped-paper" aria-hidden="true"></div>
+            <div class="pink-paper" aria-hidden="true"></div>
+            <div class="peach-paper" aria-hidden="true"></div>
+            <div class="cover-sheet">
+                <p class="cover-script">Art</p>
+                <h1 aria-label="Creative art portfolio"><span>PORT</span><span>FOLIO</span></h1>
+                <p class="cover-note">a little world of art</p>
+                <a class="cover-byline" href="#featured" (click)="scrollTo('featured'); $event.preventDefault()">By Kawthar <span aria-hidden="true">↗</span></a>
             </div>
-
-            <svg style="position: absolute; width: 0; height: 0;">
-                <filter id="torn-edge">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
-                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
-                </filter>
-            </svg>
-            <!-- <div class="main-section__welcome-message">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="oklch(45.9% 0.187 3.815deg)"><path d="M479.23-100q-77.77 0-146.92-29.96-69.16-29.96-120.77-81.58-51.62-51.61-81.58-120.96T100-480q0-79.15 30.77-148.5t83.58-120.65q52.8-51.31 123.54-81.08Q408.62-860 488.77-860q75 0 142.15 25.58 67.16 25.58 117.96 70.81 50.81 45.23 80.96 107.5Q860-593.85 860-521.08q0 103.85-61.73 162.46Q736.54-300 640-300h-72.46q-17.08 0-27.31 11.15Q530-277.69 530-262.46q0 18.54 15 38.54T560-178q0 39.61-21.92 58.81Q516.15-100 479.23-100Zm.77-380Zm-184.31 15.69Q310-478.62 310-500q0-21.38-14.31-35.69Q281.38-550 260-550q-21.38 0-35.69 14.31Q210-521.38 210-500q0 21.38 14.31 35.69Q238.62-450 260-450q21.38 0 35.69-14.31Zm120-160Q430-638.62 430-660q0-21.38-14.31-35.69Q401.38-710 380-710q-21.38 0-35.69 14.31Q330-681.38 330-660q0 21.38 14.31 35.69Q358.62-610 380-610q21.38 0 35.69-14.31Zm200 0Q630-638.62 630-660q0-21.38-14.31-35.69Q601.38-710 580-710q-21.38 0-35.69 14.31Q530-681.38 530-660q0 21.38 14.31 35.69Q558.62-610 580-610q21.38 0 35.69-14.31Zm120 160Q750-478.62 750-500q0-21.38-14.31-35.69Q721.38-550 700-550q-21.38 0-35.69 14.31Q650-521.38 650-500q0 21.38 14.31 35.69Q678.62-450 700-450q21.38 0 35.69-14.31ZM479.23-160q9.77 0 15.27-4.81T500-178q0-14-15-31.46t-15-54.69q0-42.77 29-69.31T570-360h70q70.62 0 115.31-41.38Q800-442.77 800-521.08q0-121.38-93.08-200.15Q613.85-800 488.77-800q-137.15 0-232.96 93T160-480q0 133 93.5 226.5T479.23-160Z"/></svg>
-                <span>Welcome to my creative space</span>
-            </div> -->
-
-            <!-- <div class="main-section__title">
-                <h1>Creating Magic Through Art</h1>
-            </div> -->
-
-            <!-- <div class="main-section__description">
-                <span>Hi! I’m Kawthar 🎨🧸🌻
-                An artist who loves turning little sparks of imagination into colorful worlds, soft shapes, and dreamy stories. Explore my work, and let’s create something beautiful together 🩷</span>
-            </div> -->
-
-            <!-- <div class="main-section__actions">
-                <button (click)="scrollTo('gallery')" (pointerdown)="scrollTo('gallery')" style="touch-action: manipulation;">View My Work</button>
-            </div> -->
+            <span class="paperclip paperclip-top" aria-hidden="true"></span>
+            <span class="paperclip paperclip-bottom" aria-hidden="true"></span>
+            <svg class="sticker sun" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#fffdf7" stroke-width="15" stroke-linecap="round"><path d="M60 12v13m0 70v13M12 60h14m69 0h13M26 26l10 10m48 48 10 10M26 94l10-10m48-48 10-10"/><circle cx="60" cy="60" r="24"/></g><g fill="none" stroke="#f88a3b" stroke-width="4" stroke-linecap="round"><path d="M60 12v13m0 70v13M12 60h14m69 0h13M26 26l10 10m48 48 10 10M26 94l10-10m48-48 10-10"/><circle cx="60" cy="60" r="24"/><path d="M66 48c-21-8-25 24-5 23 14-1 11-19 2-16-8 1-7 9-2 9"/></g></svg>
+            <svg class="sticker heart" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 105C-10 57 12 2 43 16c13 5 17 17 17 17S80-2 103 18c29 29-6 62-43 87Z" fill="#f879b0" stroke="#fffdf7" stroke-width="10" stroke-linejoin="round"/><path d="m32 30-7 23m17-29L29 69m18-35L36 80m18-34L45 83m15-30L55 91m16-53L63 86m19-57L73 80m21-50L83 66" stroke="#ffe0ee" stroke-width="2" opacity=".7"/></svg>
+            <span class="love-note" aria-hidden="true">♥ ♥</span>
+            <svg class="sticker tulip" viewBox="0 0 100 150" aria-hidden="true"><path d="M42 140 38 72M40 114 15 83m25 38 31-38M38 74C1 65 15 18 32 28c4-23 27-23 28-7 28-4 23 34-22 53Z" fill="#f780af" stroke="#fffdf7" stroke-width="13" stroke-linejoin="round"/><path d="M42 140c-8-27-5-46-4-66M40 118C17 109 19 94 15 83c18 13 20 22 25 35m0 6c18-12 22-26 31-41-18 10-28 24-31 41" fill="none" stroke="#6fa74e" stroke-width="3"/><path d="M38 72C13 60 16 34 29 30l7 23C28 18 48 9 54 23l-9 32c14-35 28-33 28-21 0 18-19 28-35 38Z" fill="#f780af"/><path d="m27 40 8 19m11-29-5 28m21-21L47 59" stroke="#ffc9de" stroke-width="2"/></svg>
+            <svg class="sticker clover" viewBox="0 0 120 140" aria-hidden="true"><g stroke="#fffdf7" stroke-width="13" stroke-linejoin="round"><path d="M62 75 46 131"/><path d="M60 68C-2 72 7 20 34 33 15-7 76-9 65 40c35-45 65 8 25 21 43 29-10 62-30 7Z" fill="#6cbb42"/></g><g fill="none" stroke="#499f36" stroke-width="3"><path d="M64 69 47 128m14-58L34 37m27 29L47 20m16 46 29-28M63 68l28 17m-32-16L26 59"/></g></svg>
+            <a class="explore-link" href="#featured" (click)="scrollTo('featured'); $event.preventDefault()">Open my sketchbook <span aria-hidden="true">↓</span></a>
         </div>
 
-        <div class="intro-section">
-            <h3>hi, i'm kawthar ✶</h3>
+        <div class="intro-section" #introSection>
+            <h3 class="typed-intro" [class.is-typing]="typingIntro()" [attr.aria-label]="introText">
+                <span class="typed-intro__size" aria-hidden="true">{{ introText }}</span>
+                <span class="typed-intro__text" aria-hidden="true">{{ typedIntro() }}</span>
+            </h3>
             <p>i make things, draw things & collect little ideas.</p>
         </div>
 
-        <!-- <div class="about-me-section" #aboutSection> 
-            <div class="content">
-                <p class="about-me-section__title">About me</p>
-
-                <p class="about-me-section__text">
-                Art has always been a big part of who I am. I love doodling, sketching flowers, creating mandalas, and designing patterns that feel soft and natural. I’m inspired by nature and the small, peaceful moments that often go unnoticed, and I try to capture that feeling in everything I create.
-            </div>
-            
-        </div> -->
-
-        <div #featuredSection>
+        <div class="doodle-scene" #featuredSection id="featured">
+            <app-art-doodles class="featured" [motifs]="['brush', 'heart', 'pin']"></app-art-doodles>
             <app-featured></app-featured>
         </div>
 
-        <div #sketchbookSection>
+        <div class="doodle-scene" #sketchbookSection id="sketchbook">
+            <app-art-doodles class="sketchbook" [motifs]="['pin', 'cloud', 'brush']"></app-art-doodles>
             <app-sketchbook></app-sketchbook>
         </div>
 
-        <div>
+        <div class="doodle-scene" #pinterestSection id="pinterest">
+            <app-art-doodles class="pinterest" [motifs]="['palette', 'sunflower', 'cloud']"></app-art-doodles>
             <app-pinterest-inspired></app-pinterest-inspired>
         </div>
 
-        <div #floralsSection>
+        <div class="doodle-scene" #floralsSection id="florals">
+            <app-art-doodles class="florals" [motifs]="['sunflower', 'heart', 'sunflower']"></app-art-doodles>
             <app-florals></app-florals>
         </div>
 
-        <div>
+        <div class="doodle-scene" #wallSection id="wall">
+            <app-art-doodles class="wall" [motifs]="['pin', 'heart', 'palette']"></app-art-doodles>
             <app-the-wall></app-the-wall>
         </div>
 
@@ -209,47 +102,34 @@
             </div>
         </div> -->
 
-        <div class="contact-me" #contactSection>
-            <!-- <div class="content">
-                <p class="contact-me-section__title">Let's Connect!</p>
-                <p class="contact-me-section__desc">I'd love to hear from you! Whether you want to commission a piece, collaborate,
-                    or just say hi, feel free to reach out.</p>
-            
-                <div class="contact-me-section__actions">
-                    <button class="primary-button" (click)="openEmail()" (pointerdown)="openEmail()" style="touch-action: manipulation;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-mail w-5 h-5">
-                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                        </svg>
-                        <span>Email Me</span>
-                    </button>
-            
-                    <button class="gradient-button" (click)="openInstagram()" (pointerdown)="openInstagram()" style="touch-action: manipulation;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-instagram w-5 h-5">
-                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                        </svg>
-                        <span>Instagram</span>
-                    </button>
-                </div>
-            </div> -->
+        <div class="doodle-scene contact-journal">
+        <div class="contact-collage" aria-hidden="true">
+            <span class="contact-collage__scrap contact-collage__rose"></span>
+            <span class="contact-collage__scrap contact-collage__grid"></span>
+            <!-- <img class="contact-collage__bow" src="images/journal-bow.svg" alt="" width="160" height="130" draggable="false"> -->
+            <span class="contact-collage__scrap contact-collage__stripes"></span>
+            <!-- <img class="contact-collage__flowers" src="images/journal-flowers.svg" alt="" width="140" height="180" draggable="false"> -->
+            <span class="contact-collage__scrap contact-collage__blush"></span>
+        </div>
+        <app-art-doodles class="contact" [motifs]="['cloud', 'pin', 'heart']"></app-art-doodles>
+        <div class="contact-me" #contactSection id="contact">
+            <img class="contact-sticker contact-sticker--sun" src="images/journal-sun.svg" alt="" aria-hidden="true" width="120" height="120" draggable="false">
+            <img class="contact-sticker contact-sticker--heart" src="images/journal-heart.svg" alt="" aria-hidden="true" width="120" height="120" draggable="false">
+            <img class="contact-sticker contact-sticker--clover" src="images/journal-clover.svg" alt="" aria-hidden="true" width="120" height="140" draggable="false">
             <h3>have an idea? ✶</h3>
             <p>I'd love to hear from you! Whether you want to commission a piece, collaborate,
                 or just say hi, feel free to reach out.</p>
 
             <div>
-                <span>Instagram</span>
-                <span>Email</span>
+                <span (click)="openInstagram()" (pointerdown)="openInstagram()" style="touch-action: manipulation;">Instagram</span>
+                <span (click)="openEmail()" (pointerdown)="openEmail()" style="touch-action: manipulation;">Email</span>
             </div>
         </div>
     </div>
 
-    <div class="home-section__footer">
+    </div>
+    <div class="home-section__footer doodle-scene">
+        <app-art-doodles class="footer" [motifs]="['sunflower', 'heart', 'brush']"></app-art-doodles>
         <div class="container">
             <p>
                 <span>Made with</span>
@@ -258,4 +138,8 @@
             </p> 
         </div>
     </div>
+    <button class="scroll-to-top" type="button" [hidden]="!showScrollToTop()" (click)="scrollToTop()" aria-label="Scroll to top" title="Back to top">
+        <span aria-hidden="true">↑</span>
+        <span>Top</span>
+    </button>
 </section>

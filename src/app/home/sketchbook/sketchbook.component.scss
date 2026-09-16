@@ -1,8 +1,10 @@
 .sketchbook-section {
     padding: 4rem 0;
+    overflow: hidden;
 
     &__content {
         width: 100%;
+        max-width: 1600px;
         margin: 0 auto;
         position: relative;
 
@@ -11,36 +13,40 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 1.5rem;
-            padding: 0 8rem;
+            padding: 0 clamp(1.5rem, 8vw, 8rem);
             align-items: flex-end;
 
-            & .left-slot {
+            .left-slot {
                 position: relative;
                 rotate: -1.5deg;
                 display: inline-block;
 
-                & .small-text {
+                .small-text {
                     display: block;
-                    margin-bottom: 0.25rem;
                     color: #f476b1;
-                    font-size: 38px;
+                    font-size: clamp(24px, 2.5vw, 38px);
                     font-weight: 500;
-                    margin-bottom: -15px;
+                    margin-bottom: 5px;
                     letter-spacing: 1px;
                     font-family: Pacifico, cursive;
                 }
 
-                & .main-title {
+                .main-title {
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 900;
-                    /* Extra bold text */
-                    font-size: 64px;
-                    color: #1A1A1A;
+                    font-size: clamp(42px, 5vw, 64px);
+                    line-height: 1;
+                    color: #1a1a1a;
                     margin: 0;
                     display: inline-block;
                     letter-spacing: -1px;
 
-                    background: linear-gradient(to top, #faa7ce 22%, transparent 22%);
+                    background: linear-gradient(
+                        to top,
+                        #faa7ce 22%,
+                        transparent 22%
+                    );
+
                     padding-bottom: 2px;
                 }
 
@@ -53,17 +59,40 @@
         }
 
         &--cards {
-            margin-top: 20px;
+            margin-top: clamp(1rem, 2vw, 20px);
+
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            & .card-sticker {
+            align-items: flex-start;
+
+            // Keeps the scrapbook spacing without relying
+            // on huge fixed margins.
+            gap: clamp(0.5rem, 2vw, 2rem);
+
+            padding: 0 clamp(0.75rem, 4vw, 3rem);
+
+            .card-sticker {
                 display: inline-block;
-                background-color: #ffffff; /* White torn paper border */
-                padding: 12px 14px 18px 14px; /* Thicker border on bottom mimics polaroid style */
+                background-color: transparent;
+                padding: 12px 14px 18px;
                 position: relative;
-                margin: 30px; /* Gives room for the sticking-out tape pieces */
-                
+
+                // Responsive card width
+                width: clamp(250px, 24vw, 388px);
+
+                // Scrapbook spacing
+                margin: clamp(0.5rem, 1.5vw, 1.5rem);
+
+                transition:
+                    transform 0.25s ease,
+                    z-index 0.25s ease;
+
+                &:hover {
+                    transform: rotate(0deg) translateY(-8px) scale(1.02);
+                    z-index: 5;
+                }
+
                 &.card-sticker-1 {
                     transform: rotate(-3deg);
                 }
@@ -79,16 +108,17 @@
                 &.card-sticker-4 {
                     transform: rotate(3deg);
                 }
-                /* Applies the SVG filter to make the edges look hand-torn and jagged */
-                filter: url(#ripped-paper-edge) drop-shadow(4px 6px 12px rgba(0, 0, 0, 0.08));
 
                 .card-body {
-                    background-color: #FCECE6; /* Fallback background color */
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    height: auto;
+
+                    background-color: #fcece6;
                     overflow: hidden;
                     border-radius: 2px;
+
                     display: flex;
-                    width: 360px;
-                    height: 480px;
                 }
 
                 .sticker-img {
@@ -100,35 +130,38 @@
 
                 .washi-tape {
                     position: absolute;
-                    width: 115px;
-                    height: 35px;
+                    width: clamp(80px, 7vw, 115px);
+                    height: clamp(25px, 2.3vw, 35px);
+
                     z-index: 10;
                     opacity: 0.75;
                     backdrop-filter: blur(0.5px);
 
                     filter: url(#tape-edge);
-                    left: 36%;
-                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+
+                    left: 50%;
                     top: -13px;
+                    transform: translateX(-50%);
+
+                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
                 }
 
-                & .tape-1 {
+                .tape-1 {
                     background-color: #f670ad;
                 }
 
-                & .tape-2 {
+                .tape-2 {
                     background-color: #fad1ae;
                 }
 
-                & .tape-3 {
+                .tape-3 {
                     background-color: #efb5d2;
                 }
 
-                & .tape-4 {
-                    background-color: #F4A261;
+                .tape-4 {
+                    background-color: #f4a261;
                 }
-                  
-                  
+
                 .torn-filter-svg {
                     position: absolute;
                     width: 0;
@@ -138,28 +171,194 @@
             }
         }
 
-        & .doodle-svg {
+        .doodle-svg {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: clamp(30px, 4vw, 50px);
+            height: clamp(30px, 4vw, 50px);
             pointer-events: none;
             opacity: 0.6;
             z-index: 1;
         }
 
-        & .doodle-star {
+        .doodle-star {
             top: 15%;
-            right: 8%;
-            color: #FF7BB3;
+            right: clamp(2%, 8vw, 8%);
+            color: #ff7bb3;
             transform: rotate(-15deg) scale(1.2);
         }
 
-        & .doodle-heart {
+        .doodle-heart {
             top: 107%;
             left: 0%;
-            color: #F8C364;
+            color: #f8c364;
             transform: rotate(-30deg);
             scale: 2.2;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .sketchbook-section {
+        padding: 3rem 0;
+
+        &__content {
+            &--header {
+                padding: 0 2.5rem;
+            }
+
+            &--cards {
+                padding: 0 1.5rem;
+
+                .card-sticker {
+                    width: clamp(230px, 40vw, 320px);
+                    margin: 1rem;
+
+                    .card-body {
+                        aspect-ratio: 3 / 4;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .sketchbook-section {
+        padding: 2.5rem 0;
+
+        &__content {
+            &--header {
+                padding: 0 1.25rem;
+                align-items: flex-start;
+
+                .left-slot {
+                    .small-text {
+                        font-size: 22px;
+                        margin-bottom: 10px;
+                    }
+
+                    .main-title {
+                        font-size: 18px;
+                    }
+
+                    svg {
+                        width: 35px;
+                        height: 35px;
+                        top: 5px;
+                        right: 5px;
+                    }
+                }
+            }
+
+            &--cards {
+                margin-top: 1.5rem;
+
+                padding: 0 1.75rem;
+
+                gap: 35px;
+
+                .card-sticker {
+                    /*
+                     * Two cards per row while still
+                     * looking like scattered scrapbook pieces.
+                     */
+                    width: min(320px, calc(100vw - 70px));
+                    height: auto;
+
+                    margin: 0.5rem;
+
+                    padding: 15px;
+
+                    .card-body {
+                        aspect-ratio: 3 / 4;
+                    }
+
+                    .washi-tape {
+                        width: 75px;
+                        height: 23px;
+                        top: -9px;
+                    }
+                }
+            }
+
+            .doodle-star {
+                top: 8%;
+                right: 3%;
+                width: 32px;
+                height: 32px;
+            }
+
+            .doodle-heart {
+                top: 103%;
+                left: -5px;
+                scale: 1.4;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .sketchbook-section {
+        padding: 2rem 0;
+
+        &__content {
+            &--header {
+                padding: 0 1rem;
+
+                .left-slot {
+                    .small-text {
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+
+                    .main-title {
+                        font-size: 18px;
+                    }
+
+                    svg {
+                        right: 2px;
+                        top: 32px;
+                    }
+                }
+            }
+
+            &--cards {
+                padding: 0 1.5rem;
+                gap: 25px;
+
+                .card-sticker {
+                    width: calc(100% - 30px);
+                    margin: 0.375rem;
+
+                    padding: 6px 7px 11px;
+
+                    .washi-tape {
+                        width: 65px;
+                        height: 20px;
+                        top: -8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .sketchbook-section {
+        &__content {
+            &--cards {
+                .card-sticker {
+                    width: calc(100% - 1rem);
+                    margin: 0.3rem;
+
+                    padding: 12px;
+
+                    .washi-tape {
+                        width: 58px;
+                        height: 18px;
+                    }
+                }
+            }
         }
     }
 }

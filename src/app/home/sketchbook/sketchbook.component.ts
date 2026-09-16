@@ -1,8 +1,9 @@
+import { TypewriterDirective } from '../typewriter.directive';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sketchbook',
-  imports: [],
+  imports: [TypewriterDirective],
   templateUrl: './sketchbook.component.html',
   styleUrl: './sketchbook.component.scss'
 })

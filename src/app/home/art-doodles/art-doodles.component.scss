@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: clip;
+  pointer-events: none;
+  user-select: none;
+}
+
+svg {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: clamp(3rem, var(--size, 7vw), 7rem);
+  height: auto;
+  transform: rotate(var(--turn, -18deg));
+  color: #f476b1;
+  opacity: .65;
+  &:nth-child(1) { --x: 2%; --y: 28%; --turn: -32deg; }
+  &:nth-child(2) { --x: 87%; --y: 62%; --size: 4vw; --turn: 21deg; }
+  &:nth-child(3) { --x: 29%; --y: 88%; --turn: 48deg; }
+}
+
+// Each section has its own composition, anchored to its changing height.
+:host(.hero) svg {
+  &:nth-child(1) { --x: 16%; --y: 30%; --turn: -21deg; }
+  &:nth-child(2) { --x: 67%; --y: 14%; --turn: 32deg; }
+  &:nth-child(3) { --x: 77%; --y: 69%; --turn: -38deg; }
+}
+:host(.featured) svg {
+  &:nth-child(1) { --x: 5%; --y: 38%; }
+  &:nth-child(2) { --x: 72%; --y: 23%; }
+  &:nth-child(3) { --x: 49%; --y: 84%; --size: 6vw; }
+}
+:host(.sketchbook) svg {
+  &:nth-child(1) { --x: 91%; --y: 18%; --turn: 38deg; }
+  &:nth-child(2) { --x: 1%; --y: 58%; --size: 8vw; }
+  &:nth-child(3) { --x: 65%; --y: 90%; --turn: -64deg; }
+}
+:host(.pinterest) svg {
+  &:nth-child(1) { --x: 31%; --y: 19%; --turn: 17deg; }
+  &:nth-child(2) { --x: 92%; --y: 49%; --size: 8vw; }
+  &:nth-child(3) { --x: 8%; --y: 86%; --turn: -13deg; }
+}
+:host(.florals) svg {
+  &:nth-child(1) { --x: 0%; --y: 34%; --size: 9vw; }
+  &:nth-child(2) { --x: 81%; --y: 12%; --turn: -27deg; }
+  &:nth-child(3) { --x: 59%; --y: 87%; --turn: 29deg; }
+}
+:host(.wall) svg {
+  &:nth-child(1) { --x: 86%; --y: 31%; --turn: 51deg; }
+  &:nth-child(2) { --x: 4%; --y: 73%; --turn: -41deg; }
+  &:nth-child(3) { --x: 38%; --y: 92%; --size: 5vw; }
+}
+:host(.contact) svg {
+  &:nth-child(1) { --x: 7%; --y: 7%; }
+  &:nth-child(2) { display: none; }
+  &:nth-child(3) { --x: 89%; --y: 53%; --size: 4vw; }
+}
+:host(.footer) svg {
+  &:nth-child(1) { --x: 22%; --y: 54%; --turn: 34deg; }
+  &:nth-child(2) { display: none; }
+  &:nth-child(3) { --x: 77%; --y: 6%; --turn: -62deg; }
+}
+
+@media (max-width: 640px) {
+  svg { width: clamp(2.5rem, var(--size, 12vw), 4rem); opacity: .5; }
+  // On narrow screens, let doodles peek from the sides of the cards.
+  :host:not(.hero):not(.contact):not(.footer) svg {
+    &:nth-child(1) { --x: -2%; }
+    &:nth-child(2) { --x: 90%; }
+    &:nth-child(3) { --x: 3%; }
+  }
+  :host(.hero) svg {
+    &:nth-child(1) { --x: 12%; --y: 22%; }
+    &:nth-child(2) { --x: 77%; --y: 43%; }
+    &:nth-child(3) { --x: 57%; --y: 77%; }
+  }
+  :host(.contact) svg {
+    &:nth-child(1) { --x: -3%; }
+    &:nth-child(3) { --x: 92%; }
+  }
+}

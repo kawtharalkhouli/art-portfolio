@@ -90,7 +90,14 @@
     </div>
 </section> -->
 
-<section class="featured-work">
+<section class="featured-work scrapbook-page">
+    <div class="journal-stickers" aria-hidden="true">
+        <img class="journal-stickers__1" src="images/journal-sun.svg" alt="" width="120" height="120" loading="lazy" draggable="false">
+        <img class="journal-stickers__2" src="images/journal-heart.svg" alt="" width="120" height="120" loading="lazy" draggable="false">
+        <img class="journal-stickers__3" src="images/journal-clover.svg" alt="" width="120" height="140" loading="lazy" draggable="false">
+        <img class="journal-stickers__4" src="images/journal-heart.svg" alt="" width="120" height="120" loading="lazy" draggable="false">
+    </div>
+    <div class="paper-scraps" aria-hidden="true"><span class="paper-scraps__grid"></span></div>
     <div class="featured-work__content">
         <svg xmlns="http://w3.org" viewBox="0 0 100 100" class="doodle-svg doodle-star">
             <!-- Outer sketchy outline -->
@@ -111,7 +118,7 @@
         <div class="featured-work__content--header">
             <div class="left-slot">
                 <span class="small-text">the good stuff</span>
-                <h1 class="main-title">FEATURED WORK</h1>
+                <h1 class="main-title" appTypewriter><span class="heading-typewriter__size" aria-hidden="true">FEATURED WORK</span><span class="heading-typewriter__text" aria-hidden="true"></span></h1>
                 <svg viewBox="0 0 100 100" width="26" height="26" aria-hidden="true" focusable="false"
                     style="--rot:12deg;transform:rotate(12deg)"
                     class="pointer-events-none shrink-0 text-orange absolute -top-4 -right-7"
@@ -120,117 +127,128 @@
                         fill="currentColor"></path>
                 </svg>
             </div>
+        <span class="paper-scraps__note" aria-hidden="true">little favorites ♡</span>
         </div>
 
         <div class="featured-work__content--cards">
-            <div class="card-sticker card-sticker-1">
-                <!-- Invisible SVG filter that creates the rough torn paper borders -->
-                <svg class="torn-filter-svg">
+
+            <svg class="torn-filter-svg">
+                <defs>
                     <filter id="ripped-paper-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R"
-                            yChannelSelector="G" />
+                        <feTurbulence
+                            type="fractalNoise"
+                            baseFrequency="0.04"
+                            numOctaves="4"
+                            result="noise"
+                        />
+        
+                        <feDisplacementMap
+                            in="SourceGraphic"
+                            in2="noise"
+                            scale="7"
+                            xChannelSelector="R"
+                            yChannelSelector="G"
+                        />
                     </filter>
-
-                    <!-- Separate filter just for the washi tape torn edges -->
+        
                     <filter id="tape-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R"
-                            yChannelSelector="G" />
+                        <feTurbulence
+                            type="fractalNoise"
+                            baseFrequency="0.08"
+                            numOctaves="2"
+                            result="noise"
+                        />
+        
+                        <feDisplacementMap
+                            in="SourceGraphic"
+                            in2="noise"
+                            scale="4"
+                            xChannelSelector="R"
+                            yChannelSelector="G"
+                        />
                     </filter>
-                </svg>
-
-                <!-- Washi Tapes placed outside the body so they overlap the edges -->
+                </defs>
+            </svg>
+        
+        
+            <div class="card-sticker card-sticker-1">
+        
                 <div class="washi-tape tape-left"></div>
                 <div class="washi-tape tape-right"></div>
-
-                <!-- The actual frame containing your image -->
+        
                 <div class="card-body first-card">
-                    <img src="images/3d-sunflower.jpg" alt="Scrapbook Artwork" class="sticker-img" />
+                    <img
+                        src="images/featured-artwork-01.jpg"
+                        alt="Scrapbook Artwork"
+                        class="sticker-img"
+                    />
                 </div>
+        
             </div>
-
+        
+        
             <div class="card-sticker card-sticker-2">
-                <!-- Invisible SVG filter that creates the rough torn paper borders -->
-                <svg class="torn-filter-svg">
-                    <filter id="ripped-paper-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R"
-                            yChannelSelector="G" />
-                    </filter>
-
-                    <!-- Separate filter just for the washi tape torn edges -->
-                    <filter id="tape-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R"
-                            yChannelSelector="G" />
-                    </filter>
-                </svg>
-
-                <!-- Washi Tapes placed outside the body so they overlap the edges -->
+        
                 <div class="washi-tape tape-left-1"></div>
                 <div class="washi-tape tape-right-1"></div>
-
-                <!-- The actual frame containing your image -->
+        
                 <div class="card-body second-card">
-                    <img src="images/heart-floral-wreath.jpg" alt="Scrapbook Artwork" class="sticker-img" />
+                    <img
+                        src="images/featured-artwork-02.jpg"
+                        alt="Scrapbook Artwork"
+                        class="sticker-img"
+                    />
                 </div>
+        
             </div>
-
+        
+        
             <div class="card-sticker card-sticker-3">
-                <!-- Invisible SVG filter that creates the rough torn paper borders -->
-                <svg class="torn-filter-svg">
-                    <filter id="ripped-paper-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R"
-                            yChannelSelector="G" />
-                    </filter>
-
-                    <!-- Separate filter just for the washi tape torn edges -->
-                    <filter id="tape-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R"
-                            yChannelSelector="G" />
-                    </filter>
-                </svg>
-
-                <!-- Washi Tapes placed outside the body so they overlap the edges -->
+        
                 <div class="washi-tape tape-left-2"></div>
                 <div class="washi-tape tape-right-2"></div>
-
-                <!-- The actual frame containing your image -->
+        
                 <div class="card-body third-card">
-                    <img src="images/spring-in-pastel-blooms.jpg" alt="Scrapbook Artwork" class="sticker-img" />
+                    <img
+                        src="images/featured-artwork-03.jpg"
+                        alt="Scrapbook Artwork"
+                        class="sticker-img"
+                    />
                 </div>
+        
             </div>
-
+        
+        
             <div class="card-sticker card-sticker-4">
-                <!-- Invisible SVG filter that creates the rough torn paper borders -->
-                <svg class="torn-filter-svg">
-                    <filter id="ripped-paper-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R"
-                            yChannelSelector="G" />
-                    </filter>
-
-                    <!-- Separate filter just for the washi tape torn edges -->
-                    <filter id="tape-edge">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R"
-                            yChannelSelector="G" />
-                    </filter>
-                </svg>
-
-                <!-- Washi Tapes placed outside the body so they overlap the edges -->
+        
                 <div class="washi-tape tape-left-3"></div>
                 <div class="washi-tape tape-right-3"></div>
-
-                <!-- The actual frame containing your image -->
+        
                 <div class="card-body fourth-card">
-                    <img src="images/cute-doodles-03.jpg" alt="Scrapbook Artwork" class="sticker-img" />
+                    <img
+                        src="images/featured-artwork-04.jpg"
+                        alt="Scrapbook Artwork"
+                        class="sticker-img"
+                    />
                 </div>
+        
             </div>
 
+            <div class="card-sticker card-sticker-5">
+        
+                <div class="washi-tape tape-left-3"></div>
+                <div class="washi-tape tape-right-3"></div>
+        
+                <div class="card-body fifth-card">
+                    <img
+                        src="images/featured-artwork-05.jpg"
+                        alt="Scrapbook Artwork"
+                        class="sticker-img"
+                    />
+                </div>
+        
+            </div>
+        
         </div>
     </div>
 </section>

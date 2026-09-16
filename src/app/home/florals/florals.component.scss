@@ -1,5 +1,6 @@
 .florals-section {
     padding: 4rem 0;
+    overflow: hidden;
 
     &__content {
         width: 100%;
@@ -14,33 +15,37 @@
             padding: 0 8rem;
             align-items: flex-end;
 
-            & .left-slot {
+            .left-slot {
                 position: relative;
                 rotate: -1.5deg;
                 display: inline-block;
 
-                & .small-text {
+                .small-text {
                     display: block;
-                    margin-bottom: 0.25rem;
                     color: #f4a261;
-                    font-size: 38px;
+                    font-size: clamp(26px, 3vw, 38px);
                     font-weight: 500;
-                    margin-bottom: -15px;
+                    margin-bottom: 5px;
                     letter-spacing: 1px;
                     font-family: Pacifico, cursive;
                 }
 
-                & .main-title {
+                .main-title {
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 900;
-                    /* Extra bold text */
-                    font-size: 64px;
-                    color: #1A1A1A;
+                    font-size: clamp(42px, 5vw, 64px);
+                    line-height: 1;
+                    color: #1a1a1a;
                     margin: 0;
                     display: inline-block;
                     letter-spacing: -1px;
 
-                    background: linear-gradient(to top, #fad1ae 22%, transparent 22%);
+                    background: linear-gradient(
+                        to top,
+                        #fad1ae 22%,
+                        transparent 22%
+                    );
+
                     padding-bottom: 2px;
                 }
 
@@ -57,13 +62,17 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            & .card-sticker {
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0 3rem;
+
+            .card-sticker {
                 display: inline-block;
-                background-color: #ffffff; /* White torn paper border */
-                padding: 12px 14px 18px 14px; /* Thicker border on bottom mimics polaroid style */
+                background-color: transparent;
+                padding: 12px 14px 18px;
                 position: relative;
-                margin: 30px; /* Gives room for the sticking-out tape pieces */
-                
+                margin: 30px;
+
                 &.card-sticker-1 {
                     transform: rotate(-3deg);
                 }
@@ -79,16 +88,15 @@
                 &.card-sticker-4 {
                     transform: rotate(3deg);
                 }
-                /* Applies the SVG filter to make the edges look hand-torn and jagged */
-                filter: url(#ripped-paper-edge) drop-shadow(4px 6px 12px rgba(0, 0, 0, 0.08));
 
                 .card-body {
-                    background-color: #FCECE6; /* Fallback background color */
+                    background-color: #fcece6;
                     overflow: hidden;
                     border-radius: 2px;
                     display: flex;
                     width: 360px;
                     height: 480px;
+                    max-width: 100%;
                 }
 
                 .sticker-img {
@@ -107,28 +115,30 @@
                     backdrop-filter: blur(0.5px);
 
                     filter: url(#tape-edge);
-                    left: 36%;
-                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+
+                    left: 50%;
                     top: -13px;
+                    transform: translateX(-50%) rotate(-2deg);
+
+                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
                 }
 
-                & .tape-1 {
+                .tape-1 {
                     background-color: #d7699a;
                 }
 
-                & .tape-2 {
+                .tape-2 {
                     background-color: #e9bc95;
                 }
 
-                & .tape-3 {
+                .tape-3 {
                     background-color: #e78dba;
                 }
 
-                & .tape-4 {
+                .tape-4 {
                     background-color: #eba469;
                 }
-                  
-                  
+
                 .torn-filter-svg {
                     position: absolute;
                     width: 0;
@@ -138,7 +148,7 @@
             }
         }
 
-        & .doodle-svg {
+        .doodle-svg {
             position: absolute;
             width: 50px;
             height: 50px;
@@ -147,19 +157,320 @@
             z-index: 1;
         }
 
-        & .doodle-star {
+        .doodle-star {
             top: 15%;
             right: 8%;
-            color: #FF7BB3;
+            color: #ff7bb3;
             transform: rotate(-15deg) scale(1.2);
         }
 
-        & .doodle-heart {
+        .doodle-heart {
             top: 107%;
-            left: 0%;
-            color: #F8C364;
-            transform: rotate(-30deg);
-            scale: 2.2;
+            left: 2%;
+            color: #f8c364;
+            transform: rotate(-30deg) scale(2.2);
+        }
+    }
+}
+
+
+/* =====================================================
+   SMALL DESKTOP
+   ===================================================== */
+
+@media (max-width: 1200px) {
+    .florals-section {
+        &__content {
+            &--header {
+                padding: 0 4rem;
+            }
+
+            &--cards {
+                padding: 0 2rem;
+
+                .card-sticker {
+                    margin: 24px;
+
+                    .card-body {
+                        width: 320px;
+                        height: 425px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 992px) {
+    .florals-section {
+        padding: 3.5rem 0;
+
+        &__content {
+            &--header {
+                padding: 0 2.5rem;
+
+                .left-slot {
+                    .small-text {
+                        margin-bottom: -10px;
+                    }
+
+                    .main-title {
+                        font-size: 52px;
+                    }
+                }
+            }
+
+            &--cards {
+                padding: 0 1.5rem;
+                gap: 10px;
+
+                .card-sticker {
+                    margin: 24px 18px;
+
+                    .card-body {
+                        width: 290px;
+                        height: 390px;
+                    }
+
+                    .washi-tape {
+                        width: 100px;
+                        height: 32px;
+                    }
+                }
+            }
+
+            .doodle-star {
+                right: 3%;
+            }
+
+            .doodle-heart {
+                left: 1%;
+            }
+        }
+    }
+}
+
+
+/* =====================================================
+   MOBILE / TABLET
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .florals-section {
+        padding: 3rem 0;
+
+        &__content {
+            &--header {
+                padding: 0 1.5rem;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 1rem;
+
+                .left-slot {
+                    rotate: -1deg;
+
+                    .small-text {
+                        font-size: 30px;
+                        margin-bottom: -8px;
+                    }
+
+                    .main-title {
+                        font-size: 44px;
+                        line-height: 1.05;
+                    }
+
+                    svg {
+                        transform: scale(0.8);
+                        transform-origin: top left;
+                    }
+                }
+            }
+
+            &--cards {
+                margin-top: 35px;
+                padding: 0 1rem;
+                gap: 15px;
+
+                .card-sticker {
+                    margin: 20px 10px;
+                    padding: 9px 10px 14px;
+
+                    .card-body {
+                        width: min(320px, calc(100vw - 70px));
+                        height: auto;
+                        aspect-ratio: 3 / 4;
+                    }
+
+                    .washi-tape {
+                        width: 90px;
+                        height: 28px;
+                        top: -10px;
+                    }
+
+                    &.card-sticker-1 {
+                        transform: rotate(-2deg);
+                    }
+
+                    &.card-sticker-2 {
+                        transform: rotate(2deg);
+                    }
+
+                    &.card-sticker-3 {
+                        transform: rotate(-2.5deg);
+                    }
+
+                    &.card-sticker-4 {
+                        transform: rotate(1.5deg);
+                    }
+                }
+            }
+
+            .doodle-svg {
+                width: 38px;
+                height: 38px;
+            }
+
+            .doodle-star {
+                top: 10%;
+                right: 3%;
+                transform: rotate(-15deg) scale(0.9);
+            }
+
+            .doodle-heart {
+                top: auto;
+                bottom: -10px;
+                left: 3%;
+                transform: rotate(-30deg) scale(1.4);
+            }
+        }
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 576px) {
+    .florals-section {
+        padding: 2.5rem 0;
+
+        &__content {
+            &--header {
+                padding: 0 1.25rem;
+
+                .left-slot {
+                    .small-text {
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                    }
+
+                    .main-title {
+                        font-size: 30px;
+                        letter-spacing: -0.5px;
+                    }
+                }
+            }
+
+            &--cards {
+                padding: 0 0.75rem;
+                margin-top: 25px;
+
+                .card-sticker {
+                    width: calc(100% - 30px);
+                    max-width: 340px;
+                    margin: 22px auto;
+                    padding: 12px;
+
+                    .card-body {
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 3 / 4;
+                    }
+
+                    .washi-tape {
+                        width: 80px;
+                        height: 25px;
+                        top: -9px;
+                    }
+
+                    &.card-sticker-1 {
+                        transform: rotate(-1.8deg);
+                    }
+
+                    &.card-sticker-2 {
+                        transform: rotate(1.5deg);
+                    }
+
+                    &.card-sticker-3 {
+                        transform: rotate(-1.2deg);
+                    }
+
+                    &.card-sticker-4 {
+                        transform: rotate(1.8deg);
+                    }
+                }
+            }
+
+            .doodle-star {
+                width: 30px;
+                height: 30px;
+                top: 7%;
+                right: 4%;
+            }
+
+            .doodle-heart {
+                width: 32px;
+                height: 32px;
+                left: 5%;
+                bottom: -5px;
+            }
+        }
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+   320px - 380px
+   ===================================================== */
+
+@media (max-width: 380px) {
+    .florals-section {
+        &__content {
+            &--header {
+                padding: 0 1rem;
+
+                .left-slot {
+                    .small-text {
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+
+                    .main-title {
+                        font-size: 25px;
+                    }
+                }
+            }
+
+            &--cards {
+                padding: 0 1.5rem;
+
+                .card-sticker {
+                    width: calc(100% - 24px);
+                    margin: 20px auto;
+
+                    .washi-tape {
+                        width: 72px;
+                        height: 23px;
+                    }
+                }
+            }
         }
     }
 }

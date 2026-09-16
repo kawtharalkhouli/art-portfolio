@@ -1,0 +1,46 @@
+@for (motif of motifs(); track $index) {
+  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+    @switch (motif) {
+      @case ('heart') {
+        <path d="M50 83C39 74 13 57 13 35C13 14 39 10 50 29C61 10 87 14 87 35C87 57 61 74 50 83Z" />
+      }
+      @case ('palette') {
+        <path d="M87 45C87 20 64 11 43 15C20 19 9 39 14 60C18 80 41 91 54 82C63 75 47 68 56 60C65 52 87 64 87 45Z" />
+        <ellipse cx="69" cy="38" rx="7" ry="9" />
+        <circle cx="32" cy="33" r="7" />
+        <circle cx="48" cy="26" r="6" />
+        <circle cx="25" cy="52" r="6" />
+        <circle cx="36" cy="70" r="6" />
+      }
+      @case ('brush') {
+        <path d="M45 56 69 15Q74 7 79 12Q84 15 78 24L54 62Z" />
+        <path d="m45 54 12 8-9 13-13-9Z" />
+        <path d="M36 66C19 65 30 83 15 87C35 93 53 84 48 74Z" />
+        <path d="M22 85Q35 82 37 75" />
+        <path d="M64 59q8-12 11 0c0 8-11 8-11 0Z" />
+      }
+      @case ('pin') {
+        <path d="m49 65 1 24 6-24" />
+        <path d="m38 30-3 23q-14 6-11 13h51q3-7-11-13l-3-23" />
+        <rect x="29" y="15" width="42" height="19" rx="9" />
+      }
+      @case ('cloud') {
+        <path d="M28 69h46a15 15 0 0 0 1-30 25 25 0 0 0-48-3 17 17 0 0 0 1 33Z" />
+      }
+      @case ('sunflower') {
+        <path d="M50 58v33m0-9q-21 0-19-16 17 0 19 16m0-6q19 0 18-14-15 0-18 14" />
+        <g>
+          <path d="M43 27C29 3 71 3 57 27" />
+          <path d="M43 27C29 3 71 3 57 27" transform="rotate(45 50 43)" />
+          <path d="M43 27C29 3 71 3 57 27" transform="rotate(90 50 43)" />
+          <path d="M43 27C29 3 71 3 57 27" transform="rotate(135 50 43)" />
+          <path d="M43 27C29 3 71 3 57 27" transform="rotate(180 50 43)" />
+          <path d="M43 27C29 3 71 3 57 27" transform="rotate(225 50 43)" />
+          <path d="M43 27C29 3 71 3 57 27" transform="rotate(270 50 43)" />
+          <path d="M43 27C29 3 71 3 57 27" transform="rotate(315 50 43)" />
+        </g>
+        <circle cx="50" cy="43" r="17" />
+      }
+    }
+  </svg>
+}

@@ -1,9 +1,10 @@
-import { Component, computed, ElementRef, HostListener, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, computed, ElementRef, HostListener, inject, signal, ViewChild, WritableSignal } from '@angular/core';
 import { FeaturedComponent } from './featured/featured.component';
 import { SketchbookComponent } from './sketchbook/sketchbook.component';
 import { PinterestInspiredComponent } from './pinterest-inspired/pinterest-inspired.component';
 import { FloralsComponent } from './florals/florals.component';
 import { TheWallComponent } from './the-wall/the-wall.component';
+import { ArtDoodlesComponent } from './art-doodles/art-doodles.component';
 
 interface GalleryItems {
   id: number;
@@ -14,23 +15,113 @@ interface GalleryItems {
 
 @Component({
   selector: 'app-home',
-  imports: [FeaturedComponent, SketchbookComponent, PinterestInspiredComponent, FloralsComponent, TheWallComponent],
+  imports: [FeaturedComponent, SketchbookComponent, PinterestInspiredComponent, FloralsComponent, TheWallComponent, ArtDoodlesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  readonly mobileMenuOpen = signal(false);
+  @ViewChild('navigationHeader') navigationHeader!: ElementRef<HTMLElement>;
+  @ViewChild('menuToggle') menuToggle!: ElementRef<HTMLButtonElement>;
+  @ViewChild('pinterestSection') pinterestSection!: ElementRef<HTMLElement>;
+  @ViewChild('wallSection') wallSection!: ElementRef<HTMLElement>;
+
+  @HostListener('document:pointerdown', ['$event'])
+  @HostListener('document:focusin', ['$event'])
+  closeMenuOutside(event: Event): void {
+    if (!this.navigationHeader?.nativeElement.contains(event.target as Node)) this.mobileMenuOpen.set(false);
+  }
+
+  @HostListener('document:keydown.escape')
+  closeMenuWithEscape(): void {
+    if (!this.mobileMenuOpen()) return;
+    this.mobileMenuOpen.set(false);
+    this.menuToggle.nativeElement.focus({ preventScroll: true });
+  }
+
+  @HostListener('window:resize')
+  closeMenuOnDesktop(): void {
+    if (window.innerWidth >= 767) this.mobileMenuOpen.set(false);
+  }
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  @ViewChild('introSection') introSection!: ElementRef<HTMLElement>;
+  readonly introText = "hi, i'm kawthar ✶";
+  readonly typedIntro = signal(window.matchMedia('(prefers-reduced-motion: reduce)').matches ? this.introText : '');
+  readonly typingIntro = signal(false);
+  private revealObserver?: IntersectionObserver;
+  private introObserver?: IntersectionObserver;
+  private typingTimer?: ReturnType<typeof setTimeout>;
+  private readonly motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  private readonly finishAnimations = (): void => {
+    if (!this.motionPreference.matches) return;
+    clearTimeout(this.typingTimer);
+    this.typedIntro.set(this.introText);
+    this.typingIntro.set(false);
+    this.introObserver?.disconnect();
+    this.revealObserver?.disconnect();
+    this.host.nativeElement.querySelectorAll('.reveal-pending').forEach(card => card.classList.remove('reveal-pending'));
+  };
+
+  private initializeAnimations(): void {
+    this.motionPreference.addEventListener('change', this.finishAnimations);
+    if (this.motionPreference.matches) {
+      this.finishAnimations();
+      return;
+    }
+    this.revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        this.revealObserver?.unobserve(entry.target);
+      });
+    }, { threshold: 0.08 });
+    this.host.nativeElement.querySelectorAll<HTMLElement>('.scrapbook-page .card-sticker').forEach((card, index) => {
+      card.classList.add('reveal-pending');
+      card.style.setProperty('--reveal-delay', `${index % 3 * 70}ms`);
+      this.revealObserver?.observe(card);
+    });
+    this.introObserver = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      this.introObserver?.disconnect();
+      this.typingIntro.set(true);
+      const typeNext = () => {
+        this.typedIntro.set(this.introText.slice(0, this.typedIntro().length + 1));
+        if (this.typedIntro().length < this.introText.length) {
+          this.typingTimer = setTimeout(typeNext, 95);
+        } else {
+          this.typingIntro.set(false);
+        }
+      };
+      typeNext();
+    }, { threshold: 0.4 });
+    this.introObserver.observe(this.introSection.nativeElement);
+  }
   @ViewChild('featuredSection') featuredSection!: ElementRef<HTMLElement>;
   @ViewChild('sketchbookSection') sketchbookSection!: ElementRef<HTMLElement>;
   @ViewChild('floralsSection') floralsSection!: ElementRef<HTMLElement>;
   @ViewChild('contactSection') contactSection!: ElementRef<HTMLElement>;
+  @ViewChild('mainSection') mainSection!: ElementRef<HTMLElement>;
   @ViewChild('galleryGrid') galleryGrid!: ElementRef<HTMLElement>;
   private _resizeObserver!: ResizeObserver;
   galleryColumns: WritableSignal<number> = signal<number>(5);
   activeFilter: WritableSignal<string> = signal<string>('All');
   filterTags: WritableSignal<string[]> = signal(['All', 'Florals', 'Doodles', 'Sketches', 'Kawaii', 'Watercolor', 'Aesthetic', 'Mandala', 'Bookmarks', 'Acrylic Paint', 'Polaroids']);
 
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  showScrollToTop = signal(false);
+
+  private readonly onPageScroll = (): void => {
+    this.showScrollToTop.set(Math.max(window.scrollY, document.body.scrollTop, document.documentElement.scrollTop) > 400);
+  };
+
+  scrollToTop(): void {
+    document.querySelector<HTMLAnchorElement>('.home-section__header .left-slot')?.focus({ preventScroll: true });
+    const options: ScrollToOptions = {
+      top: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    };
+    window.scrollTo(options);
+    document.body.scrollTo(options);
   }
   
   // Gallery Items
@@ -848,6 +939,9 @@ export class HomeComponent {
 
   ngAfterViewInit(): void {
     this._reseize();
+    document.addEventListener('scroll', this.onPageScroll, { capture: true, passive: true });
+    this.onPageScroll();
+    this.initializeAnimations();
   }
 
   private _reseize(): void {
@@ -876,16 +970,23 @@ export class HomeComponent {
     }
   }
 
-  scrollTo(section: 'featured' | 'sketchbook' | 'florals' | 'contact'): void {
+  scrollTo(section: 'featured' | 'sketchbook' | 'pinterest' | 'florals' | 'wall' | 'contact' | 'main'): void {
+    if (this.mobileMenuOpen()) {
+      this.mobileMenuOpen.set(false);
+      this.menuToggle.nativeElement.focus({ preventScroll: true });
+    }
     const map: Record<string, ElementRef<HTMLElement>> = {
       featured: this.featuredSection,
       sketchbook: this.sketchbookSection,
+      pinterest: this.pinterestSection,
+      wall: this.wallSection,
       florals: this.floralsSection,
       contact: this.contactSection,
+      main: this.mainSection
     };
 
     map[section]?.nativeElement.scrollIntoView({
-      behavior: 'smooth',
+      behavior: this.motionPreference.matches ? 'instant' : 'smooth',
       block: 'start',
     });
   }
@@ -899,6 +1000,11 @@ export class HomeComponent {
   }
 
   ngOnDestroy(): void {
+    clearTimeout(this.typingTimer);
+    this.revealObserver?.disconnect();
+    this.introObserver?.disconnect();
+    this.motionPreference.removeEventListener('change', this.finishAnimations);
+    document.removeEventListener('scroll', this.onPageScroll, true);
     this._resizeObserver.disconnect();
   }
 }

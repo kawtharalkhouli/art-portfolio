@@ -1,3 +1,7 @@
+@use './styles/contact-collage';
+@use './styles/scrapbook-cards';
+@use './styles/scrapbook-sections';
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
@@ -35,3 +39,9 @@ html, body {
   font-weight: 400;
   font-style: normal;
 }
+
+/* Cream stationery and raspberry ink tie the gallery pages to the cover. */
+body { background: #f8efdf; }
+app-home .main-title { color: #a71169 !important; }
+app-home .small-text { color: #ba397d !important; }
+app-home .card-sticker { --paper-tone: #fffaf0; }
